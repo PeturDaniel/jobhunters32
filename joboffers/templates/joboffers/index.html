@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div>Job Offers</div>
+    {% for job_offer in job_offers %}
+        {% include "joboffers/_single_job_offer.html" with job_offer=job_offer %}
+    {% endfor %}
+{% endblock %}
