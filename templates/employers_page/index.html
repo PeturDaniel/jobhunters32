@@ -1,4 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h2>Vinnustaðir</h2>
+    <h2 class="page_title">Vinnustaðir</h2>
+    <div class="employers">
+        {% for employer in employers %}
+        {% include 'employers_page/single_employer.html' with employer=employer %}
+        {% endfor %}
+    </div>
 {% endblock %}
