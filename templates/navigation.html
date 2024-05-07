@@ -13,7 +13,12 @@
           <a class="nav-link" href="{% url 'employers-index' %}">Vinnustaðir</a>
         </li>
         {% if user.is_authenticated %}
-            <li><a href="{% url 'logout' %}">Logout</a></li>
+            <li>
+                <form action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Logout</button>
+                </form>
+            </li>
             <li><a href="{% url 'job_seeker_profile' %}">Profile</a></li>
         {% else %}
             <li><a href="{% url 'login' %}">Login</a></li>
@@ -21,7 +26,7 @@
         {% endif %}
       </ul>
         {% if user.is_authenticated %}
-            <img src="{{ user.job_seeker_profile.profile_image }}" class="profile_image"/>
+            <img src="{{ user.jobseekerprofile.profile_image }}" class="profile_image"/>
         {% endif %}
 
     </div>

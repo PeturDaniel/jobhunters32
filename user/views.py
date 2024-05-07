@@ -15,6 +15,7 @@ def register(request):
         'form': UserCreationForm()
     })
 
+
 def job_seeker_profile(request):
     profile = JobSeekerProfile.objects.filter(user=request.user).first()
     if request.method == 'POST':
@@ -25,5 +26,5 @@ def job_seeker_profile(request):
             profile.save()
             return redirect('job_seeker_profile')
     return render(request, 'job_seeker_page/job_seeker_profile.html', {
-        'form' : JobSeekerProfileForm(instance=profile)
+        'form': JobSeekerProfileForm(instance=profile)
     })
