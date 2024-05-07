@@ -2,7 +2,7 @@ from django.db import models
 from job_offers.models import JobOffer
 
 # Create your models here.
-    """ job recomadadions """
+
 class JobRecomendation(models.Model):
     #TODO
 
