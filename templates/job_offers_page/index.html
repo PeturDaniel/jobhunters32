@@ -3,7 +3,5 @@
     <div class="job_offer_page">
         <h2>Laus Störf</h2>
     </div>
-    {% for job_offer in job_offers %}
-        {% include 'job_offers_page/singe_job_offer.html' with job_offer=job_offer %}
-    {% endfor %}
+    {% include 'job_offers_page/singe_job_offer.html' with job_offer=job_offer %}
 {% endblock %}

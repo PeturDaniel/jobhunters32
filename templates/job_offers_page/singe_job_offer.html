@@ -1,5 +1,21 @@
 <div class="job_offer">
-    <a href="/lausstorf/{{ job_offer.id }}">
-        <h4>{{ job_offer.title }}</h4>
-    </a>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for job_offer in job_offers %}
+            <div class="col">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <a href="/lausstorf/{{ job_offer.id }}">
+                            <h5 class="card-title">{{ job_offer.title }}</h5>
+                        </a>
+                        <!--employer name-->
+                        <!--Birt?-->
+                    </div>
+                    <div class="card-footer">
+                        <small class="footer-text">Umsóknarfrestur: {{ job_offer.due_date|date:"d/m/Y" }}</small>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 </div>
