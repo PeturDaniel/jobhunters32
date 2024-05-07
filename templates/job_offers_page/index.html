@@ -4,8 +4,6 @@
         <h2>Laus Störf</h2>
     </div>
     {% for job_offer in job_offers %}
-        <h4>{{ job_offer.title }}</h4>
-        <p>{{ job_offer.employer }}</p>
-        <p>Umsóknarfrestur: {{ job_offer.due_date }}</p>
+        {% include 'job_offers_page/singe_job_offer.html' with job_offer=job_offer %}
     {% endfor %}
 {% endblock %}

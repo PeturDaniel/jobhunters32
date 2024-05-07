@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>{{ job_offer.title }}</h2>
+    <p>{{ job_offer.description }}</p>
+    <p>Umsóknarfrestur: {{ job_offer.due_date }}</p>
+    <p>Hlutfall: {{ job_offer.percentage }}</p>
+{% endblock %}
