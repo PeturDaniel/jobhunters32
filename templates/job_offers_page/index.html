@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="job_offer_page">
+        <h2>Laus Störf</h2>
+    </div>
+    {% for job_offer in job_offers %}
+        <h4>{{ job_offer.title }}</h4>
+        <p>{{ job_offer.employer }}</p>
+    {% endfor %}
+{% endblock %}
