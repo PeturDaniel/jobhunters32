@@ -5,10 +5,10 @@ from django.shortcuts import render, redirect
 # Create your views here.
 def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(date=request.POST)
+        form = UserCreationForm(data=request.POST)
         if form.is_valid():
             form.save()
             return redirect('login')
     return render(request, 'job_seeker_page/register.html', {
-        'from': UserCreationForm()
+        'form': UserCreationForm()
     })
