@@ -22,5 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('lausstorf/', include('job_offers.urls')),
     path('vinnustadir/', include('employers.urls')),
-    path('atvinnuleytandi/', include('user.urls'))
+    path('atvinnuleytandi/', include('user.urls')),
+    path('umsoknir/', include('job_application.urls'))
 ]
