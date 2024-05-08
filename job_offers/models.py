@@ -9,6 +9,7 @@ class JobOffer(models.Model):
     due_date = models.DateField()
     start_date = models.DateField()
     description = models.CharField(max_length=255)
+    #publish_date = models.DateField()
     #employer_name = models.ForeignKey()
     #employer_address = models.ForeignKey()
     #employer_link = models.ForeignKey()
