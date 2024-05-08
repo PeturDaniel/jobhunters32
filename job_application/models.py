@@ -27,6 +27,6 @@ class Application(models.Model):
     cover_letter = models.CharField(max_length=9999)
     experience = models.ForeignKey(JobExperience, on_delete=models.CASCADE, related_name='applications')
     recommendation = models.ForeignKey(JobRecommendation, on_delete=models.CASCADE, related_name='applications')
-    # user = models.ForeignKey() """create table for users/jobhunters"""
+    user = models.ForeignKey(JobSeekerProfile, on_delete=models.CASCADE)
     job_offer = models.ForeignKey(JobOffer, on_delete=models.CASCADE, related_name='applications')
 
