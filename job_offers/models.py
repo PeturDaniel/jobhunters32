@@ -1,5 +1,5 @@
 from django.db import models
-from employers.models import WorkPlace
+
 
 class JobOffer(models.Model):
     title = models.CharField(max_length=255)
@@ -10,7 +10,7 @@ class JobOffer(models.Model):
     start_date = models.DateField()
     description = models.CharField(max_length=255)
     publish_date = models.DateField()
-    WorkPlace = models.ForeignKey(WorkPlace, on_delete=models.CASCADE)
+    #employer = models.ForeignKey(Employer, on_delete=models.CASCADE)
     #employer_name = models.ForeignKey()
     #employer_address = models.ForeignKey()
     #employer_link = models.ForeignKey()
