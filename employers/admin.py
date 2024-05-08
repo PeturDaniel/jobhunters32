@@ -1,3 +1,6 @@
 from django.contrib import admin
+from employers.models import WorkPlace
 
-# Register your models here.
+
+admin.site.register(WorkPlace)
+
