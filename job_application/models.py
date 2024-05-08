@@ -1,5 +1,6 @@
 from django.db import models
 from job_offers.models import JobOffer
+from user.models import JobSeekerProfile
 
 # Create your models here.
 
@@ -21,7 +22,7 @@ class Application(models.Model):
     street_name = models.CharField(max_length=255)
     house_number = models.IntegerField(null=False)
     city = models.CharField(max_length=255)
-    county = models.CharField(max_length=255)
+    country = models.CharField(max_length=255)
     postal_code = models.IntegerField(null=False)
     cover_letter = models.CharField(max_length=9999)
     experience = models.ForeignKey(JobExperience, on_delete=models.CASCADE, related_name='applications')
