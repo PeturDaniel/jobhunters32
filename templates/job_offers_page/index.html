@@ -7,6 +7,36 @@
             <button type="button" id="search-btn" class="btn btn-default">Leita</button>
         </div>
     </div>
+    
+    <div id="buttons">        
+            <button class="button-value">Allt</button>
+        </div>
+        
+        <div class="dropdown">
+            <div class="select">
+                <span class="selected">Fyrirtæki</span>
+                <div class="caret"></div>
+            
+        <ul class="menu">
+            <li>Subway</li>
+            <li>Kitchen Nightmeres</li>
+            <li>Næturvaktin</li>
+        </ul>
+        </div>
+    
+        <div class="dropdown">
+            <div class="select">
+                <span class="selected">Flokkar</span>
+                <div class="caret"></div>
+            </div>
+        <ul class="menu">
+            <li>Kennari</li>
+            <li>Kokkur</li>
+            <li>Smakkari</li>
+            <li>Pössunarpía</li>
+        <ul/>
+        <div/>
+    
     <div class="job_offers">
         {% for job_offer in job_offers %}
         {% include 'job_offers_page/single_job_offer.html' with job_offer=job_offer %}
