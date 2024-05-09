@@ -2,28 +2,28 @@
 {% load i18n %}
 
 {% block head %}
-    {% wizard.form.media %}
+{{ wizard.form.media }}
 {% endblock %}
 
 {% block content %}
-    <p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
+    <p>Step {{ wizard.steps.step1 }} of {{ wizard.step.count }}</p>
     <form action="" method="post">
         {% csrf_token %}
+        {{ wizard.management_form }}
         <table>
-            {{ wizard.management_form }}
-            {% if wizard.management_form %}
+            {% if wizard.form.forms %}
                 {{ wizard.form.management_form }}
                 {% for form in wizard.form.forms %}
-                    {{ form.as_table }}
+                    {{ form }}
                 {% endfor %}
             {% else %}
                 {{ wizard.form }}
             {% endif %}
         </table>
-        {% if wizard.steps.prev %}
+        {% if wizard.step.prev %}
             <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.first }}">{% translate "first step" %}</button>
             <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}">{% translate "prev step" %}</button>
-        {% endif%}
+        {% endif %}
         <input type="submit" value="{% translate 'submit' %}"/>
     </form>
 {% endblock %}
