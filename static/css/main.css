@@ -57,3 +57,19 @@
     object-fit: cover; /* Ensure the image covers the entire area */
 }
 
+/* Employer photos */
+.employer-profile-photo {
+    width: 100px;
+    height: 100px;
+    object-fit: scale-down;
+}
+
+.employer-background {
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    width: 100%;
+    padding-bottom: 45%;
+    height: auto;
+    background-size: 70%;
+}
