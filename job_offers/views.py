@@ -8,6 +8,7 @@ def index(request):
     if 'leit' in request.GET:
         leit = request.GET['leit']
         job_offers = [{
+            'id': x.id,
             'title': x.title,
             'description': x.description,
             'due date': x.due_date,

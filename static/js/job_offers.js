@@ -6,22 +6,13 @@ $(document).ready(function(){
             url: 'lausstorf?leit=' + searchText,
             type: 'GET',
             success: function(resp){
-            const newHtml = resp.data.map(d => {
-                return <div className="col">
-                            <div className="card">
-                                <img src="..." className="card-img-top" alt="..."/>
-                                <div className="card-body">
-                                    <a href="/lausstorf/${d.id}">
-                                        <h5 className="card-title">${d.title}</h5>
-                                    </a>
-                                    <!--employer name-->
-                                    <!--Birt?-->
-                                </div>
-                                <div className="card-footer">
-                                    <small className="footer-text">Umsóknarfrestur: ${d.due_date} | date:"d/m/Y"}</small>
-                                </div>
-                            </div>
-                        </div>
+                const newHtml = resp.data.map(d => {
+                    return `<div class="well job">
+                                <a href="/lausstorf/${d.id}">
+                                
+                                </a>
+                            <div/>`
+
                     })
                     },
             error: function (xhr, status, error) {
