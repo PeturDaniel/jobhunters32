@@ -56,6 +56,13 @@
     object-fit: cover; /* Ensure the image covers the entire area */
 }
 
+.profile_image {
+    width: 40px; /* Set the width of the image */
+    height: 40px; /* Set the height of the image */
+    border-radius: 50%; /* Make the image circular */
+    object-fit: cover; /* Ensure the image covers the entire area */
+}
+
 /* Employer photos */
 .employer-profile-photo {
     width: 100px;
