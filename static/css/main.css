@@ -40,7 +40,7 @@
     flex-wrap: wrap; /* Allow items to wrap to the next line */
     justify-content: space-between; /* Distribute items evenly along the main axis */
 }
-
+/* job box */
 .well_job {
     flex-basis: calc(33.33% - 10px); /* Each item takes 33.33% of the container width minus margin */
     background-color: #C9E0C5;
@@ -50,6 +50,13 @@
     box-sizing: border-box; /* Include padding and border in the width calculation */
 }
 .navbar-logo {
+    width: 40px; /* Set the width of the image */
+    height: 40px; /* Set the height of the image */
+    border-radius: 50%; /* Make the image circular */
+    object-fit: cover; /* Ensure the image covers the entire area */
+}
+
+.profile_image {
     width: 40px; /* Set the width of the image */
     height: 40px; /* Set the height of the image */
     border-radius: 50%; /* Make the image circular */
