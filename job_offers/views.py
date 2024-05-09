@@ -19,7 +19,6 @@ def index(request):
     return render(request, 'job_offers_page/index.html', context)
 
 
-@login_required
 def get_job_offer_by_id(request, id):
     return render(request, 'job_offers_page/job_offer_details.html', {
         'job_offer': get_object_or_404(JobOffer, pk=id)
