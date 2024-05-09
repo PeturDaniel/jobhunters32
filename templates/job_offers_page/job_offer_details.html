@@ -7,8 +7,13 @@
     <!--employer info-->
     <!--link employer detail-->
     <!--apply button-->
-    <form method="post" action="{% url 'job_application_wizard' %}">
-        {% csrf_token %}
-        <button type="submit">Sækja um</button>
-    </form>
+    {% if user.is_authenticated %}
+        <form method="get" action="{% url 'job_application_wizard_start' %}">
+            {% csrf_token %}
+            {{ wizard.management_form }}
+            <button type="submit">Sækja um</button>
+        </form>
+    {% else %}
+        <p>Þú þarft að vera <a href='{% url 'login' %}'>innskráður</a> til að sækja um.</p>
+    {% endif %}
 {% endblock %}
