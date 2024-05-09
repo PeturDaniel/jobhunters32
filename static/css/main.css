@@ -3,8 +3,49 @@
 }
 
 .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
+    background-color: #C9E0C5; /* Background color for the footer */
+    color: #F6FFFE; /* Text color */
+    padding: 0px; /* Padding around the content */
+    text-align: center; /* Center-align text */
+    position: fixed; /* Fixed positioning */
+    bottom: 0; /* Stick to the bottom of the viewport */
+    left: 0; /* Align to the left edge */
+    width: 100%; /* Full width */
+}
+.footer a {
+    color: inherit; /* Inherit text color from parent */
+    text-decoration: none; /* Remove underline */
+}
+
+.footer ul {
+    margin-bottom: 5px; /* Adjust bottom margin of the ul */
+}
+.footer p {
+    margin-top: 5px; /* Adjust top margin of the paragraph */
+    margin-bottom: 0; /* Remove bottom margin of the paragraph */
+}
+
+
+#jobs {
+    background-color: blue;
+    display: grid;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 1rem;
+    grid-template-columns:
+    repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.job_offers {
+    display: flex; /* Use flexbox */
+    justify-content: space-between; /* Distribute items evenly along the main axis */
+    align-items: center; /* Align items in the center along the cross axis */
+}
+
+.well_job {
+    flex: 1; /* Each item will grow to take equal space */
+    background-color: #C9E0C5;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
 }
