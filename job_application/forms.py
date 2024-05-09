@@ -1,24 +1,25 @@
 from django import forms
+from django_countries.widgets import CountrySelectWidget
+from job_application.models import JobExperience, JobRecommendation, Application
+import pycountry
+
+class ApplicationForm(forms.ModelForm):
+    country_list = [(country.alpha_2, country.name) for country in pycountry.countries]
+    country = forms.ChoiceField(widget=CountrySelectWidget, choices=country_list)
+    class Meta:
+        model = Application
+        fields = ['name', 'street_name', 'house_number', 'city', 'country', 'postal_code', 'cover_letter']
 
 
-class JobExperienceForm(forms.Form):
-    place = forms.CharField(max_length=255)
-    role = forms.CharField(max_length=255)
-    start_date = forms.DateField()
-    end_date = forms.DateField()
+class JobReccomendationForm(forms.ModelForm):
+    class Meta:
+        model = JobRecommendation
+        fields = ['name', 'email', 'phone', 'contacted', 'role']
 
-class JobReccomendationForm(forms.Form):
-    name = forms.CharField(max_length=255)
-    email = forms.CharField(max_length=255)
-    phone = forms.IntegerField()
-    contacted = forms.BooleanField()
-    role = forms.CharField(max_length=255)
 
-class ApplicationForm(forms.Form):
-    name = forms.CharField(max_length=255)
-    street_name = forms.CharField(max_length=255)
-    house_number = forms.IntegerField(null=False)
-    city = forms.CharField(max_length=255)
-    country = forms.CharField(max_length=255)
-    postal_code = forms.IntegerField(null=False)
-    cover_letter = forms.CharField(max_length=9999)
+class JobExperienceForm(forms.ModelForm):
+    class Meta:
+        model = JobExperience
+        fields = ['place', 'role', 'start_date', 'end_date']
+        widgets = {'start_date': forms.DateInput(attrs={'type': 'date'}), 'end_date': forms.DateInput(attrs={'type': 'date'})}
+

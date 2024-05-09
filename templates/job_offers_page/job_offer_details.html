@@ -7,7 +7,7 @@
     <!--employer info-->
     <!--link employer detail-->
     <!--apply button-->
-    <form action="" method="post">
+    <form method="post" action="{% url 'job_application_wizard' %}">
         {% csrf_token %}
         <button type="submit">Sækja um</button>
     </form>
