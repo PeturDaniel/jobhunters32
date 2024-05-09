@@ -7,7 +7,6 @@
     color: #F6FFFE; /* Text color */
     padding: 0px; /* Padding around the content */
     text-align: center; /* Center-align text */
-    position: fixed; /* Fixed positioning */
     bottom: 0; /* Stick to the bottom of the viewport */
     left: 0; /* Align to the left edge */
     width: 100%; /* Full width */
