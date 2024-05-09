@@ -1,20 +1,19 @@
 $(document).ready(function(){
     $('#search-btn').on('click', function(e) {
         e.preventDefault();
-        const searchText = $('#search-box').val();
-        $ajax( {
-            url: 'lausstorf?leit=' + searchText,
+        let searchText = $('#search-box').val();
+        $.ajax( {
+            url: '?leit=' + searchText,
             type: 'GET',
             success: function(resp){
-                const newHtml = resp.data.map(d => {
+                let newHtml = resp.data.map(d => {
                     return `<div class="well job">
                                 <a href="/lausstorf/${d.id}">
                                     <img class="job-image" src="#" alt="#"/>
-                                       <h4 class="job-title">${d.title}</h4>
-                                       <p>Umsóknarfrestur: ${d.due_date}</p>
+                                    <h4 class="job-title">${d.title}</h4>
+                                    <p>Umsóknarfrestur: ${d.due_date}</p>
                                 </a>
                             </div>`
-
                     });
                     $('.job_offers').html(newHtml.join(''));
                     $('#search-box').val('');

@@ -14,7 +14,7 @@ def index(request):
             'due_date': x.due_date,
             'percentage': x.percentage
             #meira
-        } for x in JobOffer.objects.filter(title__unaccent__icontains=leit)]
+        } for x in JobOffer.objects.filter(title__icontains=leit)]
         return JsonResponse({'data': job_offers})
     context = {'job_offers': JobOffer.objects.all().order_by('title')}
     return render(request, 'job_offers_page/index.html', context)
