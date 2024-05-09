@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'job_offers.apps.JobOffersConfig',
-    'employers.apps.EmployersConfig'
+    'employers.apps.EmployersConfig',
+    'user.apps.UserConfig',
+    'job_application.apps.JobApplicationConfig',
 ]
 
 MIDDLEWARE = [
@@ -134,3 +136,6 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = '/atvinnuleytandi/login'
+LOGIN_REDIRECT_URL = '/lausstorf'

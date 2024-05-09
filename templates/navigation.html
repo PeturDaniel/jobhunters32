@@ -11,7 +11,25 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'employers-index' %}">Vinnustaðir</a>
+        </li>
+        {% if user.is_authenticated %}
+            <li class="nav-link">Velkomin/n {{ user.jobseekerprofile.full_name }}</li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'job_seeker_profile' %}">Prófíll</a></li>
+            <li>
+                <form action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <button class="nav-link" type="submit">Útskráning</button>
+                </form>
+            </li>
+        {% else %}
+            <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Skrá inn</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Nýskráning</a></li>
+        {% endif %}
       </ul>
+        {% if user.is_authenticated %}
+            <img src="{{ user.jobseekerprofile.profile_image }}" class="profile_image"/>
+        {% endif %}
+
     </div>
   </div>
 </nav>
