@@ -8,15 +8,15 @@
 
 
 
-<!--<div class="job_offer">
+<!--<div class="well_job">
     <div class="row row-cols-1 row-cols-md-3 g-4">
         {% for job_offer in job_offers %}
             <div class="col">
                 <div class="card">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="{{ job_offer.employer.profile_photo }}" class="employer-profile-photo" alt="...">
                     <div class="card-body">
                         <a href="/lausstorf/{{ job_offer.id }}">
-                            <h5 class="card-title">{{ job_offer.title }}</h5>
+                            <h5 class="job-title">{{ job_offer.title }}</h5>
                         </a>
                     </div>
                     <div class="card-footer">
