@@ -8,6 +8,3 @@ class Employer(models.Model):
     profile_photo = models.CharField(max_length=9999)
     about = models.CharField(max_length=9999)
     address = models.CharField(max_length=255)
-
-
-
