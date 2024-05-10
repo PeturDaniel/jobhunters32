@@ -12,7 +12,8 @@ def index(request):
             'title': x.title,
             'description': x.description,
             'due_date': x.due_date,
-            'percentage': x.percentage
+            'percentage': x.percentage,
+            'employer_photo': x.employer.profile_photo
             #meira
         } for x in JobOffer.objects.filter(title__icontains=leit)]
         return JsonResponse({'data': job_offers})
