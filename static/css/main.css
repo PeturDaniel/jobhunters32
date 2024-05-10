@@ -21,7 +21,7 @@ main {
 
 /* Footer Styles */
 
-.footer {
+footer {
     background-color: #C9E0C5;
     color: #F6FFFE;
     padding: 10px;
@@ -29,22 +29,20 @@ main {
     bottom: 0;
     left: 0;
     width: 100%;
-    margin-top: auto;
+
 }
 
-.footer a {
+footer li {
+    margin: 5px;
+}
+footer a {
     color: inherit;
     text-decoration: none;
 }
-
-.footer ul {
-    margin-bottom: 5px;
+footer p {
+    margin: 5px;
 }
 
-.footer p {
-    margin-top: 5px;
-    margin-bottom: 0;
-}
 
 /* Navbar Styles */
 
@@ -166,6 +164,7 @@ main {
     border-radius: 0.5em;
     color : #9fa5b5;
     position: absolute;
+    overflow-y: auto;
     top: 3em;
     left: 50%;
     width: 100%;
@@ -189,8 +188,11 @@ main {
 
 .active {
     background: #23242a;
-
 }
+.menu.show {
+    display: block;
+    opacity: 1;
+    visibility: visible;
 
 }
 
