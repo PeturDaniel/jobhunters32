@@ -109,7 +109,9 @@ footer p {
     height: auto;
     background-size: 70%;
 }
-
+.btn-group {
+    text-align: center;
+}
 
 .dropdown {
     max-width: 15em;
