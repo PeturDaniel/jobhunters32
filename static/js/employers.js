@@ -9,7 +9,7 @@ $(document).ready(function(){
                 let newHtml = resp.data.map(d => {
                     return `<div class="well employer">
                                 <a href="/vinnustadir/${d.id}">
-                                    <img class="employer-image" src="#" alt="#"/>
+                                    <img class="employer-profile-photo" src="${d.profile_photo}" alt="#"/>
                                     <h4 class="employer-title">${d.name}</h4>
                                     <p>${d.address}</p>
                                 </a>

@@ -11,8 +11,8 @@ def index(request):
             'name': x.name,
             'about': x.about,
             'address': x.address,
-            'cover photo': x.cover_photo,
-            'profile photo': x.profile_photo
+            'cover_photo': x.cover_photo,
+            'profile_photo': x.profile_photo
             #meira
         } for x in Employer.objects.filter(name__icontains=leit)]
         return JsonResponse({'data': employers})

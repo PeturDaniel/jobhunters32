@@ -9,7 +9,7 @@ $(document).ready(function(){
                 let newHtml = resp.data.map(d => {
                     return `<div class="well_job">
                                 <a href="/lausstorf/${d.id}">
-                                    <img class="job-image" src="#" alt="#"/>
+                                    <img class="employer-profile-photo" src="${d.employer_photo}" alt="#"/>
                                     <h4 class="job-title">${d.title}</h4>
                                     <p>Umsóknarfrestur: ${d.due_date}</p>
                                 </a>
