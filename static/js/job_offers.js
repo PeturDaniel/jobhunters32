@@ -25,3 +25,17 @@ $(document).ready(function(){
         });
     });
 });
+
+document.querySelector('.select').addEventListener('click', function() {
+    var menu = document.querySelector('.menu');
+    var caret = document.querySelector('.caret');
+    if (menu.style.display === 'block') {
+        menu.style.display = 'none';
+        menu.style.opacity = '0';
+        caret.classList.remove('caret-rotate');
+    } else {
+        menu.style.display = 'block';
+        menu.style.opacity = '1';
+        caret.classList.add('caret-rotate');
+    }
+});

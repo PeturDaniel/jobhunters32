@@ -7,36 +7,31 @@
             <button type="button" id="search-btn" class="btn btn-default">Leita</button>
         </div>
     </div>
-    
-    <div id="buttons">        
-            <button class="button-value">Allt</button>
-        </div>
         
         <div class="dropdown">
-            <div class="select">
-                <span class="selected">Fyrirtæki</span>
-                <div class="caret"></div>
-            
-        <ul class="menu">
-            <li>Subway</li>
-            <li>Kitchen Nightmeres</li>
-            <li>Næturvaktin</li>
-        </ul>
-        </div>
-    
-        <div class="dropdown">
-            <div class="select">
-                <span class="selected">Flokkar</span>
-                <div class="caret"></div>
-            </div>
-        <ul class="menu">
-            <li>Kennari</li>
-            <li>Kokkur</li>
-            <li>Smakkari</li>
-            <li>Pössunarpía</li>
-        <ul/>
-        <div/>
-    
+  <div class="select" id="dropdownMenuButton">
+    Fyrirtæki
+    <div class="caret"></div>
+  </div>
+  <ul class="menu" aria-labelledby="dropdownMenuButton">
+    <li><a class="dropdown-item" href="#">Subway</a></li>
+    <li><a class="dropdown-item" href="#">Kitchen Nightmeres</a></li>
+    <li><a class="dropdown-item" href="#">Sorpa</a></li>
+    <li><a class="dropdown-item" href="#">Icelandair</a></li>  
+  </ul>
+</div>
+    <div class="dropdown">
+  <div class="select" id="dropdownMenuButton">
+    Flokkar
+    <div class="caret"></div>
+  </div>
+  <ul class="menu" aria-labelledby="dropdownMenuButton">
+    <li><a class="dropdown-item" href="#">Kokkur</a></li>
+    <li><a class="dropdown-item" href="#">Samlokari</a></li>
+    <li><a class="dropdown-item" href="#">Flugmaður</a></li>
+    <li><a class="dropdown-item" href="#">Pössunarstarf</a></li>  
+  </ul>
+</div>
     <div class="job_offers">
         {% for job_offer in job_offers %}
         {% include 'job_offers_page/single_job_offer.html' with job_offer=job_offer %}
