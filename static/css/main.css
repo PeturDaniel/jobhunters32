@@ -95,6 +95,7 @@ main {
 }
 
 .employer-profile-photo {
+    padding-top: 10px;
     width: 100px;
     height: 100px;
     object-fit: scale-down;
@@ -189,4 +190,31 @@ main {
 .active {
     background: #23242a;
 
+}
+
+}
+
+.card-link:link
+{
+    color: #212121;
+    text-decoration: none;
+}
+.card-link:visited
+{
+    color: #212121;
+    text-decoration: none;
+}
+.card-link:hover
+{
+    color: #212121;
+    text-decoration: none;
+}
+.card-link:active
+{
+    color: #212121;
+    text-decoration: none;
+}
+
+.card-footer {
+    background-color: #C9E0C5;
 }
