@@ -165,6 +165,7 @@ footer p {
     border-radius: 0.5em;
     color : #9fa5b5;
     position: absolute;
+    overflow-y: auto;
     top: 3em;
     left: 50%;
     width: 100%;
@@ -188,8 +189,11 @@ footer p {
 
 .active {
     background: #23242a;
-
 }
+.menu.show {
+    display: block;
+    opacity: 1;
+    visibility: visible;
 
 
 
