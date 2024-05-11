@@ -6,4 +6,16 @@
         {{ form }}
         <input type="submit" class="btn btn-primary" value="Uppfæra"/>
     </form>
+    <form class="application page">
+        {% for application in applications %}
+            <ul>
+                <li class="status">Title: {{ application.name }}</li>
+            </ul>
+        {% endfor %}
+        {% for offer in offers %}
+            <ul>
+                <li class="title">Title {{ offer.title }}</li>
+            </ul>
+        {% endfor %}
+    </form>
 {% endblock %}
