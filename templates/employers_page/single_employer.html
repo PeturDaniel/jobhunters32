@@ -6,22 +6,18 @@
     </a>
 </div>-->
 
-<div class="well_employer">
-    <div class="row row-cols-1 row-cols-md-4 g-4">
-    {% for employer in employers %}
-        <div class="col">
-            <a href="/vinnustadir/{{ employer.id }}" class="card-link">
-                <div class="card h-100">
-                    <img src="{{ employer.profile_photo }}" class="employer-profile-photo rounded mx-auto d-block" alt="...">
-                    <div class="card-body">
-                        <h5 class="employer-name">{{ employer.name }}</h5>
-                        <h6 class="employer-address">{{ employer.address }}</h6>
-                    </div>
-                <div class="card-footer bg-info-subtle">
-                    <small class="footer-text">blablabla</small>
-                </div>
-            </a>
+
+<div class="col">
+    <a href="/vinnustadir/{{ employer.id }}" class="card-link">
+        <div class="card h-100">
+            <img src="{{ employer.profile_photo }}" class="employer-profile-photo rounded mx-auto d-block" alt="...">
+            <div class="card-body">
+                <h5 class="employer-name">{{ employer.name }}</h5>
+                <h6 class="employer-address">{{ employer.address }}</h6>
+            </div>
+            <div class="card-footer bg-info-subtle">
+                <small class="footer-text">blablabla</small>
+            </div>
         </div>
-    </div>
-    {% endfor %}
+    </a>
 </div>

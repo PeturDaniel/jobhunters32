@@ -9,7 +9,13 @@
     </div>
     <br />
     <div class="employers">
-        {% include 'employers_page/single_employer.html' with employer=employer %}
+        
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            {% for employer in employers %}
+            {% include 'employers_page/single_employer.html' with employer=employer %}
+            {% endfor %}
+        </div>
+
     </div>
     <br />
 {% endblock %}
