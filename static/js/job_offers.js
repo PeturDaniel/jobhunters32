@@ -1,33 +1,43 @@
 $(document).ready(function(){
     $('#search-btn').on('click', function(e) {
         e.preventDefault();
-        const searchText = $('#search-box').val();
-        $ajax( {
-            url: 'lausstorf?leit=' + searchText,
-            type: 'GET',
-            success: function(resp){
-            const newHtml = resp.data.map(d => {
-                return <div className="col">
-                            <div className="card">
-                                <img src="..." className="card-img-top" alt="..."/>
-                                <div className="card-body">
-                                    <a href="/lausstorf/${d.id}">
-                                        <h5 className="card-title">${d.title}</h5>
+        let searchText = $('#search-box').val();
+        if (searchText.trim() !== '') {
+            $.ajax( {
+                url: '?leit=' + searchText.trim(),
+                type: 'GET',
+                success: function(resp){
+                    let newHtml = resp.data.map(d => {
+                        return `<div class="well_job">
+                                    <a href="/lausstorf/${d.id}" class="card-link">
+                                        <img class="employer-profile-photo" src="${d.employer_photo}" alt="#"/>
+                                        <h4 class="job-title">${d.title}</h4>
+                                        <p>Umsóknarfrestur: ${d.due_date}</p>
                                     </a>
-                                    <!--employer name-->
-                                    <!--Birt?-->
-                                </div>
-                                <div className="card-footer">
-                                    <small className="footer-text">Umsóknarfrestur: ${d.due_date} | date:"d/m/Y"}</small>
-                                </div>
-                            </div>
-                        </div>
-                    })
+                                </div>`
+                        });
+                        $('.job_offers').html(newHtml.join(''));
+                        $('#search-box').val('');
                     },
-            error: function (xhr, status, error) {
-            //finna betri leið, show toastr?
-            console.error(error);
-            }
-        });
+                error: function (xhr, status, error) {
+                //finna betri leið, show toastr?
+                console.error(error);
+                }
+            });
+        }
     });
+});
+
+document.querySelector('.select').addEventListener('click', function() {
+    var menu = document.querySelector('.menu');
+    var caret = document.querySelector('.caret');
+    if (menu.style.display === 'block') {
+        menu.style.display = 'none';
+        menu.style.opacity = '0';
+        caret.classList.remove('caret-rotate');
+    } else {
+        menu.style.display = 'block';
+        menu.style.opacity = '1';
+        caret.classList.add('caret-rotate');
+    }
 });

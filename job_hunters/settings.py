@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'employers.apps.EmployersConfig',
     'user.apps.UserConfig',
     'job_application.apps.JobApplicationConfig',
+    'formtools',
 ]
 
 MIDDLEWARE = [

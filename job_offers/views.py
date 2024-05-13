@@ -8,10 +8,12 @@ def index(request):
     if 'leit' in request.GET:
         leit = request.GET['leit']
         job_offers = [{
+            'id': x.id,
             'title': x.title,
             'description': x.description,
-            'due date': x.due_date,
-            'percentage': x.percentage
+            'due_date': x.due_date,
+            'percentage': x.percentage,
+            'employer_photo': x.employer.profile_photo
             #meira
         } for x in JobOffer.objects.filter(title__icontains=leit)]
         return JsonResponse({'data': job_offers})

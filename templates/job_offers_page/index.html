@@ -1,16 +1,60 @@
 {% extends 'base.html' %}
 {% block content %}
     <h2 class="page_title">Laus Störf</h2>
+    <div class="input-group">
+        <input type="search" class="form-control" id="search-box" placeholder="Leit..."/>
+        <div class="input-group-btn">
+            <button type="button" id="search-btn" class="btn btn-default">Leita</button>
+        </div>
+    </div>
+    
+    <br>
+    
+    <div class="btn-group">
+    <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Fyrirtæki
+    </button>
+    <ul class="dropdown-menu">
+            
+            <input type="checkbox" class="check" id="btn check-2" checked autocomplete="off">
+            <label class="btn primary" for="btn-check-2">Subway</label>
+            <br>
+            <input type="checkbox" class="btn check" id="btn check-3" checked autocomplete="off">
+            <label class="btn primary" for="btn-check-2">Kitchen</label>
+            <br>
+            <input type="checkbox" class="btn check" id="btn check-4" checked autocomplete="off">
+            <label class="btn primary" for="btn-check-2">Sorpa</label>
+            <br>
+            <input type="checkbox" class="btn check" id="btn check-5" checked autocomplete="off">
+            <label class="btn primary" for="btn-check-2">WoW Air</label>  
+        </ul>
+    </div>  
+    
+    
+    
+    
+    
+    
+    
+    <div class="btn-group">
+    <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Flokkar
+    </button>
+    <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Kokkur</a></li>
+            <li><a class="dropdown-item" href="#">Samlokari</a></li>
+            <li><a class="dropdown-item" href="#">Flugmaður</a></li>
+            <li><a class="dropdown-item" href="#">Pössunarstarf</a></li>
+            <li><a class="dropdown-item" href="#">Tölvufræðingur</a></li>
+        </ul>
+    </div>
+        
+    
     <div class="job_offers">
         {% for job_offer in job_offers %}
         {% include 'job_offers_page/single_job_offer.html' with job_offer=job_offer %}
         {% endfor %}
     </div>
+
 {% endblock %}
 
-<!--<div class="input-group">
-    <input type="search" class="form-control" id="search-box" placeholder="Leit..."/>
-    <div class="input-group-btn">
-        <button type="button" id="search-btn" class="btn btn-default">Leita</button>
-    </div>
-</div>-->
