@@ -2,7 +2,6 @@ $(document).ready(function(){
     $('#search-btn').on('click', function(e) {
         e.preventDefault();
         let searchText = $('#search-box').val();
-        console.log(searchText.length)
         if (searchText.trim() !== '')  {
             $.ajax( {
                 url: '?leit=' + searchText.trim(),
@@ -10,14 +9,13 @@ $(document).ready(function(){
                 success: function(resp){
                     let newHtml = resp.data.map(d => {
                         return `<div class="well_job">
-                                    <a href="/vinnustadir/${d.id}">
+                                    <a href="/vinnustadir/${d.id}" class="card-link">
                                         <img class="employer-profile-photo" src="${d.profile_photo}" alt="#"/>
                                         <h4 class="employer-title">${d.name}</h4>
                                         <p>${d.address}</p>
                                     </a>
                                 </div>`
                         });
-                        console.log(newHtml)
                         $('.employers').html(newHtml.join(''));
                         $('#search-box').val('');
                     },
