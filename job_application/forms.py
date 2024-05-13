@@ -1,11 +1,13 @@
 from django import forms
 from django_countries.widgets import CountrySelectWidget
+from django_countries.fields import CountryField
 from job_application.models import JobExperience, JobRecommendation, Application
-import pycountry
+from django.forms import formset_factory
 
+class ReviewForm(forms.Form):
+    pass
 class ApplicationForm(forms.ModelForm):
-    country_list = [(country.alpha_2, country.name) for country in pycountry.countries]
-    country = forms.ChoiceField(widget=CountrySelectWidget, choices=country_list)
+    country = CountryField().formfield(widget=CountrySelectWidget())
     class Meta:
         model = Application
         fields = ['name', 'street_name', 'house_number', 'city', 'country', 'postal_code', 'cover_letter']
@@ -23,3 +25,5 @@ class JobExperienceForm(forms.ModelForm):
         fields = ['place', 'role', 'start_date', 'end_date']
         widgets = {'start_date': forms.DateInput(attrs={'type': 'date'}), 'end_date': forms.DateInput(attrs={'type': 'date'})}
 
+JobRecommendationFormSet = formset_factory(JobReccomendationForm, extra=3)
+JobExperienceFormSet = formset_factory(JobExperienceForm, extra=3)

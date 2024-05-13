@@ -1,11 +1,11 @@
 from django.urls import path
-from job_application.forms import JobExperienceForm, JobReccomendationForm, ApplicationForm
-from job_application.views import JobApplicationWizard
+from job_application.views import JobApplicationWizard, success
 
 
 urlpatterns = [
     #http://localhost:8000/umsoknir
-    path('job_application_wizard', JobApplicationWizard.as_view([ApplicationForm, JobReccomendationForm, JobExperienceForm]), name='job_application_wizard_start')
+    path('job_application_wizard/<int:job_offer_id>', JobApplicationWizard.as_view(), name='job_application_wizard_start'),
+    path('success', success, name='success'),
 ]
 
 '''path('', views.index, name="applications-index"),'''
