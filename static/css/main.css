@@ -74,6 +74,12 @@ footer p {
     justify-content: space-between;
 }
 
+.employers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
 .well_job {
     flex-basis: calc(33.33% - 10px);
     background-color: #C9E0C5;

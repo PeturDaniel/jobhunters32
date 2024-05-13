@@ -9,17 +9,11 @@ $(document).ready(function(){
                 type: 'GET',
                 success: function(resp){
                     let newHtml = resp.data.map(d => {
-                        return `<div class="col">
-                                    <a href="/vinnustadir/${ d.id }" class="card-link">
-                                        <div class="card h-100">
-                                            <img src="${ d.profile_photo }" class="employer-profile-photo rounded mx-auto d-block" alt="...">
-                                            <div class="card-body">
-                                                <h5 class="employer-name">${ d.name }</h5>
-                                                <h6 class="employer-address">${ d.address }</h6>
-                                            </div>
-                                        <div class="card-footer bg-info-subtle">
-                                            <small class="footer-text">blablabla</small>
-                                        </div>
+                        return `<div class="well_job">
+                                    <a href="/vinnustadir/${d.id}">
+                                        <img class="employer-profile-photo" src="${d.profile_photo}" alt="#"/>
+                                        <h4 class="employer-title">${d.name}</h4>
+                                        <p>${d.address}</p>
                                     </a>
                                 </div>`
                         });
