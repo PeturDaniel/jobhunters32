@@ -30,9 +30,9 @@ X Edit profile
         X Name
         X Address
         X Link to company page
-    ~ Button to apply for the job offering / Status of the job application
+    X Button to apply for the job offering / Status of the job application
         X If the job offering has not been applied for the button should say “Apply”
-        ■ If the job offering has been applied for instead of displaying a button -
+        X If the job offering has been applied for instead of displaying a button -
             information should be displayed about when the job offering was applied
             for along with the status of the job application.
 
@@ -42,46 +42,47 @@ X Edit profile
     X Logo of the company
     X Cover image of the company
     ? Description of the company (displayed as HTML)
-    X A list of all non due job offerings the company has
+    ~ A list of all non due job offerings the company has 
+    ###hafa ehv sem hreinsar störf þar sem umsóknarfresturinn er liðinn?
         X Each job offering listed should provide a link to navigate to the link
             offering
 
-● Job applications page
-    ○ A list of all job applications
-    ○ Each job application should have the following:
-        ■ Job title
-        ■ Date of application
-        ■ Status of application
-        ■ Company
-        ■ Full time / part time
+X Job applications page
+    X A list of all job applications
+    X Each job application should have the following:
+        X Job title
+        X Date of application
+        X Status of application
+        X Company
+        X Full time / part time
 
 ● Applying for a job - should be a multi step phase
-    ○ Contact information
-        ■ Full name
-        ■ Street name
-        ■ House number
-        ■ City
-        ■ Country (displayed as a <select> HTML element)
-        ■ Postal code
-    ○ Cover letter
-        ■ A text section to write a cover letter
-    ○ Experiences
-        ■ A list of experiences related to previous jobs
-            ● Place of work
-            ● Role
-            ● Start date
-            ● End date
-    ○ Recommendations
-        ■ A list of contacts which can be contacted for recommendations
-            ● Name
-            ● Email address
-            ● Phone number
-            ● Checkbox whether they may be contacted or not
-            ● Role, e.g. Manager at Reykjavik Seafood
-    ○ Review - this is a read-only site where a user can review what he is buying and
+    X Contact information
+        X Full name
+        X Street name
+        X House number
+        X City
+        X Country (displayed as a <select> HTML element)
+        X Postal code
+    X Cover letter
+        X A text section to write a cover letter
+    ~ Experiences
+        ~ A list of experiences related to previous jobs
+            X Place of work
+            X Role
+            X Start date
+            X End date
+    ~ Recommendations
+        ~ A list of contacts which can be contacted for recommendations
+            X Name
+            X Email address
+            X Phone number
+            X Checkbox whether they may be contacted or not
+            X Role, e.g. Manager at Reykjavik Seafood
+    X Review - this is a read-only site where a user can review what he is buying and
         what information he has already typed in
-    ○ Confirmation - this is the final step where a user gets a confirmation that
+    X Confirmation - this is the final step where a user gets a confirmation that
         everything was successful, you cannot go back when you have arrived to this
         step
-    ○ Easy navigation between steps - it should be easy to navigate between the steps
+    X Easy navigation between steps - it should be easy to navigate between the steps
         in the job application phase
