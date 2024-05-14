@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
     <div class="employer-background" style="background-image: url({{ employer.cover_photo }})"></div>
+    <img class="employer-profile-photo" src="{{ employer.profile_photo }}" alt="#"/>
     <h2>{{ employer.name }}</h2>
     <p>{{ employer.about }}</p>
     <p>{{ employer.address }}</p>
