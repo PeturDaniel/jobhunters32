@@ -20,8 +20,8 @@
                 <button type="submit">Sækja um</button>
             </form>
         {% else %}
-            <h6>Umsókn</h6>
-            <p>Dagsetning umsóknar: {{ context.date }}</p>
+            <h5>Upplýsingar um umsókn</h5>
+            <p>Dagsetning umsóknar: {{ context.date|date:"d/m/Y" }}</p>
             <p>Staða umsóknar: {{ context.status }}</p>
         {% endif %}
     {% else %}
