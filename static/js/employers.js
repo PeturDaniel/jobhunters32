@@ -1,7 +1,7 @@
 const workplaces = document.getElementsByClassName("employers")
 
 
-const doSearch = () => {
+const doSearchEmployers = () => {
     const workplaces = document.querySelectorAll(".well_job");
     const query = document.getElementById("search-box").value;
 

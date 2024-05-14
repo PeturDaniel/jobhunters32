@@ -1,32 +1,20 @@
-$(document).ready(function(){
-    $('#search-btn').on('click', function(e) {
-        e.preventDefault();
-        let searchText = $('#search-box').val();
-        if (searchText.trim() !== '') {
-            $.ajax( {
-                url: '?leit=' + searchText.trim(),
-                type: 'GET',
-                success: function(resp){
-                    let newHtml = resp.data.map(d => {
-                        return `<div class="well_job">
-                                    <a href="/lausstorf/${d.id}" class="card-link">
-                                        <img class="employer-profile-photo" src="${d.employer_photo}" alt="#"/>
-                                        <h4 class="job-title">${d.title}</h4>
-                                        <p>Umsóknarfrestur: ${d.due_date}</p>
-                                    </a>
-                                </div>`
-                        });
-                        $('.job_offers').html(newHtml.join(''));
-                        $('#search-box').val('');
-                    },
-                error: function (xhr, status, error) {
-                //finna betri leið, show toastr?
-                console.error(error);
-                }
-            });
+const jobs = document.getElementsByClassName("job_offers")
+
+const doSearchJobs = () => {
+    const jobs = document.querySelectorAll(".well_job");
+    const query = document.getElementById("search-box").value;
+
+    jobs.forEach((job) => {
+        job_title = job.innerText.trim().split('\n')
+        if (job_title[0].toLowerCase().includes(query.trim().toLowerCase())) {
+            job.classList.remove("hidden");
+        }
+        else {
+            job.classList.add("hidden");
         }
     });
-});
+};
+
 
 $(document).ready(function() {
     $('#companySelect').on('change', function() {
