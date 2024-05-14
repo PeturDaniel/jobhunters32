@@ -2,6 +2,7 @@ from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
 from employers.models import Employer
 from job_offers.models import JobOffer
+from django.db.models.functions import Lower
 
 
 def index(request):
@@ -17,7 +18,7 @@ def index(request):
             #meira
         } for x in Employer.objects.filter(name__icontains=leit)]
         return JsonResponse({'data': employers})
-    context = {'employers': Employer.objects.all().order_by('name')}
+    context = {'employers': Employer.objects.all().order_by(Lower('name'))}
     return render(request, 'employers_page/index.html', context)
 
 

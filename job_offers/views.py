@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
 from job_offers.models import JobOffer
+from django.db.models.functions import Lower
 
 
 def index(request):
@@ -17,7 +18,7 @@ def index(request):
             #meira
         } for x in JobOffer.objects.filter(title__icontains=leit)]
         return JsonResponse({'data': job_offers})
-    context = {'job_offers': JobOffer.objects.all().order_by('title')}
+    context = {'job_offers': JobOffer.objects.all().order_by(Lower('title'))}
     return render(request, 'job_offers_page/index.html', context)
 
 

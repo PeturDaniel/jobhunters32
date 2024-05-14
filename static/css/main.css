@@ -236,3 +236,7 @@ header {
 main {
     background-color: #F6FFFE;
 }
+
+.hidden {
+    display: none;
+}
