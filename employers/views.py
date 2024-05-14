@@ -6,18 +6,6 @@ from django.db.models.functions import Lower
 
 
 def index(request):
-    if 'leit' in request.GET:
-        leit = request.GET['leit']
-        employers = [{
-            'id': x.id,
-            'name': x.name,
-            'about': x.about,
-            'address': x.address,
-            'cover_photo': x.cover_photo,
-            'profile_photo': x.profile_photo
-            #meira
-        } for x in Employer.objects.filter(name__icontains=leit)]
-        return JsonResponse({'data': employers})
     context = {'employers': Employer.objects.all().order_by(Lower('name'))}
     return render(request, 'employers_page/index.html', context)
 
