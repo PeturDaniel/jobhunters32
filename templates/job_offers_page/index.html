@@ -7,33 +7,15 @@
             <button type="button" id="search-btn" class="btn btn-default">Leita</button>
         </div>
     </div>
-    
+
     <br>
-    
-    <div class="btn-group">
-    <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Fyrirtæki
-    </button>
-    <ul class="dropdown-menu">
-            
-            <input type="checkbox" class="check" id="btn check-2" checked autocomplete="off">
-            <label class="btn primary" for="btn-check-2">Subway</label>
-            <br>
-            <input type="checkbox" class="btn check" id="btn check-3" checked autocomplete="off">
-            <label class="btn primary" for="btn-check-2">Kitchen</label>
-            <br>
-            <input type="checkbox" class="btn check" id="btn check-4" checked autocomplete="off">
-            <label class="btn primary" for="btn-check-2">Sorpa</label>
-            <br>
-            <input type="checkbox" class="btn check" id="btn check-5" checked autocomplete="off">
-            <label class="btn primary" for="btn-check-2">WoW Air</label>  
-        </ul>
-    </div>  
-    
-    
-    
-    
-    
+
+<select id="companySelect">
+    <option value="" selected disabled>Select a company</option>
+    {% for employer in unique_employers %}
+        <option value="{{ employer }}">{{ employer }}</option>
+    {% endfor %}
+</select>
     
     
     <div class="btn-group">
