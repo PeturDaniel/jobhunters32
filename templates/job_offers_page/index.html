@@ -7,7 +7,7 @@
 
     <br>
 
-<select id="companySelect">
+<select id="companySelect" onclick="filterCompany()">
     <option value="" selected disabled>Select a company</option>
     {% for employer in unique_employers %}
         <option value="{{ employer }}">{{ employer }}</option>
