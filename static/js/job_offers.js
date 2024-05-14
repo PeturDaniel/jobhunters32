@@ -28,16 +28,28 @@ $(document).ready(function(){
     });
 });
 
-document.querySelector('.select').addEventListener('click', function() {
-    var menu = document.querySelector('.menu');
-    var caret = document.querySelector('.caret');
-    if (menu.style.display === 'block') {
-        menu.style.display = 'none';
-        menu.style.opacity = '0';
-        caret.classList.remove('caret-rotate');
-    } else {
-        menu.style.display = 'block';
-        menu.style.opacity = '1';
-        caret.classList.add('caret-rotate');
-    }
+$(document).ready(function() {
+    $('#companySelect').on('change', function() {
+        var companyName = $(this).val(); // Get the selected company name
+        if (companyName) {
+            $.ajax({
+                url: '/getCompanyData?company=' + encodeURIComponent(companyName),
+                type: 'GET',
+                success: function(resp) {
+                    let newHtml = resp.data.map(d => {
+                        return `<div class="company-info">
+                                    <img src="${d.logo}" alt="Logo of ${d.name}" class="company-logo">
+                                    <h4>${d.name}</h4>
+                                    <p>${d.description}</p>
+                                </div>`;
+                    });
+                    $('#companyData').html(newHtml.join('')); // Assuming companyData is the ID of the container for company info
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error fetching data: ", error);
+                    // Implement error handling, e.g., show a notification or message to the user
+                }
+            });
+        }
+    });
 });
