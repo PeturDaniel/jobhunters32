@@ -14,10 +14,16 @@
         </a>
     </div>
     {% if user.is_authenticated %}
-        <form method="get" action="{% url 'job_application_wizard_start' job_offer_id=job_offer.id %}">
-            {% csrf_token %}
-            <button type="submit">Sækja um</button>
-        </form>
+        {% if enable %}
+            <form method="get" action="{% url 'job_application_wizard_start' job_offer_id=job_offer.id %}">
+                {% csrf_token %}
+                <button type="submit">Sækja um</button>
+            </form>
+        {% else %}
+            <h6>Umsókn</h6>
+            <p>Dagsetning umsóknar: {{ context.date }}</p>
+            <p>Staða umsóknar: {{ context.status }}</p>
+        {% endif %}
     {% else %}
         <p>Þú þarft að vera <a href='{% url 'login' %}'>innskráður</a> til að sækja um.</p>
     {% endif %}
