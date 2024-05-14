@@ -8,7 +8,7 @@ from job_application.models import Application
 
 
 def index(request):
-    job_offers = JobOffer.objects.all().order_by('title')
+    job_offers = JobOffer.objects.all().order_by(Lower('title'))
     unique_employers = []
     for job_offer in job_offers:
         if job_offer.employer not in unique_employers:
