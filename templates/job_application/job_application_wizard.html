@@ -16,42 +16,6 @@
     {{ wizard.form }}
 {% endif %}
 </table>
-{% if wizard.steps.next %}
-{% else %}
-    <h6>Personal Information</h6>
-    <ul>
-        <li>Nafn: {{ applicationform.name }}</li>
-        <li>Street name: {{ applicationform.street_name }}</li>
-        <li>House number: {{ applicationform.house_number }}</li>
-        <li>City: {{ applicationform.city }}</li>
-        <li>Land: {{ applicationform.country }}</li>
-        <li>Post code: {{ applicationform.postal_code }}</li>
-        <li>Cover letter: {{ applicationform.cover_letter }}</li>
-    </ul>
-    <h6>Recommendation</h6>
-    {% for recommendation in jobrecommendation %}
-        {% if recommendation.name %}
-            <ul>
-                <li>Name: {{ recommendation.name }}</li>
-                <li>email: {{ recommendation.email }}</li>
-                <li>phone: {{ recommendation.phone }}</li>
-                <li>contacted: {{ recommendation.contacted }}</li>
-                <li>role: {{ recommendation.role }}</li>
-            </ul>
-        {% endif %}
-    {% endfor %}
-    <h6>Experience</h6>
-    {% for xp in jobexperience %}
-        {% if xp.place %}
-            <ul>
-                <li>place: {{ xp.place }}</li>
-                <li>role: {{ xp.role }}</li>
-                <li>start date: {{ xp.start_date }}</li>
-                <li>end date: {{ xp.end_date }}</li>
-            </ul>
-        {% endif %}
-    {% endfor %}
-{% endif %}
 {% if wizard.steps.prev %}
 <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.first }}">{% translate "first step" %}</button>
 <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}">{% translate "prev step" %}</button>
