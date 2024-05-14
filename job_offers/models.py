@@ -15,4 +15,6 @@ class JobOffer(models.Model):
     #employer_name = models.ForeignKey()
     #employer_address = models.ForeignKey()
     #employer_link = models.ForeignKey()
+    def __str__(self):
+        return self.title
 
