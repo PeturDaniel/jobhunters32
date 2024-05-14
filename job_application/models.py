@@ -1,6 +1,7 @@
 from django.db import models
 from job_offers.models import JobOffer
 from user.models import JobSeekerProfile
+from django.utils import timezone
 
 # Create your models here.
 class Application(models.Model):
@@ -13,6 +14,8 @@ class Application(models.Model):
     cover_letter = models.CharField(max_length=9999)
     user = models.ForeignKey(JobSeekerProfile, on_delete=models.CASCADE)
     job_offer = models.ForeignKey(JobOffer, on_delete=models.CASCADE, related_name='applications')
+    sent_date = models.DateField(default=timezone.now)
+    status = models.CharField(max_length=255, default="Pending")
 
 class JobRecommendation(models.Model):
     job_application = models.ForeignKey(Application, related_name='recommendations', on_delete=models.CASCADE)

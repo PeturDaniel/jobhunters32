@@ -2,14 +2,14 @@ $(document).ready(function(){
     $('#search-btn').on('click', function(e) {
         e.preventDefault();
         let searchText = $('#search-box').val();
-        if (searchText !== '') {
+        if (searchText.trim() !== '') {
             $.ajax( {
-                url: '?leit=' + searchText,
+                url: '?leit=' + searchText.trim(),
                 type: 'GET',
                 success: function(resp){
                     let newHtml = resp.data.map(d => {
                         return `<div class="well_job">
-                                    <a href="/lausstorf/${d.id}">
+                                    <a href="/lausstorf/${d.id}" class="card-link">
                                         <img class="employer-profile-photo" src="${d.employer_photo}" alt="#"/>
                                         <h4 class="job-title">${d.title}</h4>
                                         <p>Umsóknarfrestur: ${d.due_date}</p>
