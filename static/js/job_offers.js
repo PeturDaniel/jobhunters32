@@ -44,6 +44,19 @@ const filterCategory = (unique_categories) => {
     });
 }
 
+const filterOrder = (order_by) => {
+    const due_date = due_date.value;
+    const jobs = document.querySelectorAll(".well_job");
+
+    jobs.forEach((job) => {
+        due_date = job.innerText.trim().split('\n')
+        if (due_date[1].includes(due_date)) {
+            job.classList.remove("hidden")
+        } else {
+            job.classList.add("hidden");
+        }
+    });
+}
 const filterApplied = () => {
     const checkbox = document.getElementById("checkbox")
     const bla = document.querySelectorAll(".application")

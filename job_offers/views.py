@@ -11,6 +11,7 @@ def index(request):
     job_offers = JobOffer.objects.all().order_by(Lower('title'))
     employers = Employer.objects.values_list('name', flat=True).order_by(Lower('name'))
     categories = JobOffer.objects.values_list('category', flat=True).order_by(Lower('category'))
+    due_date = JobOffer.objects.values_list('due_date', flat=True).order_by('due_date')
 
     unique_employers = []
     for employer in employers:
@@ -22,10 +23,13 @@ def index(request):
         if category not in unique_categories:
             unique_categories.append(category)
 
+
+
     context = {
         'job_offers': job_offers,
         'unique_employers': unique_employers,
         'unique_categories': unique_categories,
+        'due_dates': due_date,
     }
 
     if request.user.is_authenticated:
@@ -71,3 +75,5 @@ def get_job_offer_by_id(request, id):
             'job_offer': get_object_or_404(JobOffer, pk=id),
             'enable': True
         })
+
+
