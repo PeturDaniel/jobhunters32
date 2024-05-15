@@ -13,6 +13,10 @@ class ApplicationForm(forms.ModelForm):
         fields = ['name', 'street_name', 'house_number', 'city', 'country', 'postal_code', 'cover_letter']
 
 
+class ReviewForm(forms.Form):
+    pass
+
+
 class JobReccomendationForm(forms.ModelForm):
     class Meta:
         model = JobRecommendation
