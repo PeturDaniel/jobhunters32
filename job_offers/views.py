@@ -9,14 +9,23 @@ from employers.models import Employer
 
 def index(request):
     job_offers = JobOffer.objects.all().order_by(Lower('title'))
-    employers = Employer.objects.all().order_by(Lower('name'))
+    employers = Employer.objects.values_list('name', flat=True).order_by(Lower('name'))
+    categories = JobOffer.objects.values_list('category', flat=True).order_by(Lower('category'))
+
     unique_employers = []
     for employer in employers:
         if employer not in unique_employers:
             unique_employers.append(employer)
+
+    unique_categories = []
+    for category in categories:
+        if category not in unique_categories:
+            unique_categories.append(category)
+
     context = {
         'job_offers': job_offers,
         'unique_employers': unique_employers,
+        'unique_categories': unique_categories,
     }
     return render(request, 'job_offers_page/index.html', context)
 
