@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
     <h2>{{ job_offer.title }}</h2>
-    <p>{{ job_offer.description }}</p>
+    <p>{{ job_offer.description|safe }}</p>
     <p>Hlutfall: {{ job_offer.percentage }}</p>
     <p>Umsóknarfrestur: {{ job_offer.due_date }}</p>
     <p>Störf hefjast: {{ job_offer.start_date }}</p>
@@ -14,15 +14,19 @@
         </a>
     </div>
     {% if user.is_authenticated %}
-        {% if enable %}
-            <form method="get" action="{% url 'job_application_wizard_start' job_offer_id=job_offer.id %}">
-                {% csrf_token %}
-                <button type="submit">Sækja um</button>
-            </form>
+        {% if is_job_seeker %}
+            {% if enable %}
+                <form method="get" action="{% url 'job_application_wizard_start' job_offer_id=job_offer.id %}">
+                    {% csrf_token %}
+                    <button type="submit">Sækja um</button>
+                </form>
+            {% else %}
+                <h5>Upplýsingar um umsókn</h5>
+                <p>Dagsetning umsóknar: {{ context.date|date:"d/m/Y" }}</p>
+                <p>Staða umsóknar: {{ context.status }}</p>
+            {% endif %}
         {% else %}
-            <h5>Upplýsingar um umsókn</h5>
-            <p>Dagsetning umsóknar: {{ context.date|date:"d/m/Y" }}</p>
-            <p>Staða umsóknar: {{ context.status }}</p>
+            <p>Þú þarft að breyta <a href='{% url 'job_seeker_profile' %}'>prófílnum</a> þínum áður en þú sækir um</p>
         {% endif %}
     {% else %}
         <p>Þú þarft að vera <a href='{% url 'login' %}'>innskráður</a> til að sækja um.</p>

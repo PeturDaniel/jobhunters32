@@ -33,19 +33,27 @@ def index(request):
 def get_job_offer_by_id(request, id):
     if request.user.is_authenticated:
         profile = JobSeekerProfile.objects.filter(user=request.user).first()
-        applications = Application.objects.filter(user_id=profile.id)
-        enable = True
-        context = {'date': None, 'status': None}
-        for application in applications:
-            if application.job_offer_id == id:
-                enable = False
-                context['date'] = application.sent_date
-                context['status'] = application.status
-        return render(request, 'job_offers_page/job_offer_details.html', {
-            'job_offer': get_object_or_404(JobOffer, pk=id),
-            'enable': enable,
-            'context': context
-        })
+        if profile is not None:
+            applications = Application.objects.filter(user_id=profile.id)
+            enable = True
+            context = {'date': None, 'status': None, 'is_job_seeker': True}
+            for application in applications:
+                if application.job_offer_id == id:
+                    enable = False
+                    context['date'] = application.sent_date
+                    context['status'] = application.status
+            return render(request, 'job_offers_page/job_offer_details.html', {
+                'job_offer': get_object_or_404(JobOffer, pk=id),
+                'enable': enable,
+                'context': context
+            })
+        else:
+            context = {'is_job_seeker': False}
+            return render(request, 'job_offers_page/job_offer_details.html', {
+                'job_offer': get_object_or_404(JobOffer, pk=id),
+                'enable': False,
+                'context': context
+            })
     else:
         return render(request, 'job_offers_page/job_offer_details.html', {
             'job_offer': get_object_or_404(JobOffer, pk=id),
