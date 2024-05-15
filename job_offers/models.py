@@ -9,7 +9,7 @@ class JobOffer(models.Model):
     category = models.CharField(max_length=255)
     due_date = models.DateField()
     start_date = models.DateField()
-    description = models.CharField(max_length=255)
+    description = models.CharField(max_length=9999)
     publish_date = models.DateField()
     employer = models.ForeignKey(Employer, on_delete=models.CASCADE, default=1)
     #employer_name = models.ForeignKey()
