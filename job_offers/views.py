@@ -27,6 +27,18 @@ def index(request):
         'unique_employers': unique_employers,
         'unique_categories': unique_categories,
     }
+
+    if request.user.is_authenticated:
+        profile = JobSeekerProfile.objects.filter(user=request.user).first()
+        print(profile)
+        if profile is None:
+            job_applications = []
+            context['job_applications'] = job_applications
+        else:
+            job_applications = Application.objects.filter(user_id=profile.id).values_list('job_offer_id', flat=True)
+            print(list(job_applications))
+            context['job_applications'] = list(job_applications)
+
     return render(request, 'job_offers_page/index.html', context)
 
 

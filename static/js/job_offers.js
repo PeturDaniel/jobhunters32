@@ -43,3 +43,22 @@ const filterCategory = (unique_categories) => {
         }
     });
 }
+
+const filterApplied = () => {
+    const checkbox = document.getElementById("checkbox")
+    const bla = document.querySelectorAll(".application")
+    const applied_jobs = bla[0].innerText.slice(2, -1).split(", ")
+    const jobs = document.querySelectorAll(".well_job");
+
+    jobs.forEach((job) => {
+        if (checkbox.checked == true && applied_jobs.indexOf(job.id) !== -1) {
+            job.classList.remove("hidden")
+        }
+        else if (checkbox.checked == false) {
+            job.classList.remove("hidden")
+        }
+        else {
+            job.classList.add("hidden");
+        }
+    });
+}

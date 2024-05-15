@@ -23,7 +23,9 @@
     {% endfor %}
 </select>
         
-
+<label for="checkbox">Aðeins sótt um störf: </label>
+<script type="text/javascript" class="application"> {{ job_applications }}</script>
+<input id="checkbox" onchange="filterApplied()" type="checkbox"/>
 
     <div class="job_offers">
         {% for job_offer in job_offers %}
