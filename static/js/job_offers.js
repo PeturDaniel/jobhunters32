@@ -1,5 +1,3 @@
-const jobs = document.getElementsByClassName("job_offers")
-
 const doSearchJobs = () => {
     const jobs = document.querySelectorAll(".well_job");
     const query = document.getElementById("search-box").value;
@@ -15,8 +13,19 @@ const doSearchJobs = () => {
     });
 };
 
-const filterCompany = () => {
-    const companies = document.querySelectorAll("#companySelect")
-    if ()
-    console.log(companies)
+
+const filterCompany = (unique_employers) => {
+    const company = unique_employers.value;
+    const jobs = document.querySelectorAll(".well_job");
+
+    jobs.forEach((job) => {
+        job_title = job.innerText.trim().split('\n')
+        console.log(job_title)
+        if (job_title[1].includes(company)) {
+            job.classList.remove("hidden")
+        }
+        else {
+            job.classList.add("hidden");
+        }
+    });
 }

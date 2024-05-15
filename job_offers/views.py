@@ -5,14 +5,15 @@ from job_offers.models import JobOffer
 from django.db.models.functions import Lower
 from user.models import JobSeekerProfile
 from job_application.models import Application
-
+from employers.models import Employer
 
 def index(request):
     job_offers = JobOffer.objects.all().order_by(Lower('title'))
+    employers = Employer.objects.all().order_by(Lower('name'))
     unique_employers = []
-    for job_offer in job_offers:
-        if job_offer.employer not in unique_employers:
-            unique_employers.append(job_offer.employer)
+    for employer in employers:
+        if employer not in unique_employers:
+            unique_employers.append(employer)
     context = {
         'job_offers': job_offers,
         'unique_employers': unique_employers,

@@ -7,8 +7,9 @@
 
     <br>
 
-<select id="companySelect" onclick="filterCompany()">
-    <option value="" selected disabled>Select a company</option>
+<select id="unique_employers" onchange="filterCompany(unique_employers)">
+    <option value="" selected disabled hidden>Sía eftir fyrirtæki</option>
+    <option value="">Hreinsa síu</option>
     {% for employer in unique_employers %}
         <option value="{{ employer }}">{{ employer }}</option>
     {% endfor %}
