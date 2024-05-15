@@ -20,8 +20,22 @@ const filterCompany = (unique_employers) => {
 
     jobs.forEach((job) => {
         job_title = job.innerText.trim().split('\n')
-        console.log(job_title)
-        if (job_title[1].includes(company)) {
+        if (job_title[2].includes(company)) {
+            job.classList.remove("hidden")
+        }
+        else {
+            job.classList.add("hidden");
+        }
+    });
+}
+
+const filterCategory = (unique_categories) => {
+    const category = unique_categories.value;
+    const jobs = document.querySelectorAll(".well_job");
+
+    jobs.forEach((job) => {
+        job_category = job.innerText.trim().split('\n')
+        if (job_category[1].includes(category)) {
             job.classList.remove("hidden")
         }
         else {

@@ -15,9 +15,15 @@
     {% endfor %}
 </select>
 
+<select id="unique_categories" onchange="filterCategory(unique_categories)">
+    <option value="" selected disabled hidden>Starfsflokkur</option>
+    <option value="">Hreinsa síu</option>
+    {% for category in unique_categories %}
+        <option value="{{ category }}">{{ category }}</option>
+    {% endfor %}
+</select>
 
-
-    <div class="btn-group">
+    <!--<div class="btn-group">
     <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
         Flokkar
     </button>
@@ -28,7 +34,7 @@
             <li><a class="dropdown-item" href="#">Pössunarstarf</a></li>
             <li><a class="dropdown-item" href="#">Tölvufræðingur</a></li>
         </ul>
-    </div>
+    </div>-->
         
     
     <div class="job_offers">
