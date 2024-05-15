@@ -22,21 +22,9 @@
         <option value="{{ category }}">{{ category }}</option>
     {% endfor %}
 </select>
-
-    <!--<div class="btn-group">
-    <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Flokkar
-    </button>
-    <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Kokkur</a></li>
-            <li><a class="dropdown-item" href="#">Samlokari</a></li>
-            <li><a class="dropdown-item" href="#">Flugmaður</a></li>
-            <li><a class="dropdown-item" href="#">Pössunarstarf</a></li>
-            <li><a class="dropdown-item" href="#">Tölvufræðingur</a></li>
-        </ul>
-    </div>-->
         
-    
+
+
     <div class="job_offers">
         {% for job_offer in job_offers %}
         {% include 'job_offers_page/single_job_offer.html' with job_offer=job_offer %}
