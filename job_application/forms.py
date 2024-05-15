@@ -4,8 +4,7 @@ from django_countries.fields import CountryField
 from job_application.models import JobExperience, JobRecommendation, Application
 from django.forms import formset_factory
 
-# class ReviewForm(forms.Form):
-#     pass
+
 class ApplicationForm(forms.ModelForm):
     country = CountryField().formfield(widget=CountrySelectWidget())
     class Meta:
