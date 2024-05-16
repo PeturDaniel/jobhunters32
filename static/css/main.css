@@ -45,12 +45,6 @@ footer p {
 }
 
 
-/* Navbar Styles */
-
-#navbar {
-    background-color: #8ECCE0;
-}
-
 /* Job Offer Page Styles */
 
 .job_offer_page {
@@ -60,7 +54,6 @@ footer p {
 /* Job Listing Styles */
 
 #jobs {
-    background-color: blue;
     display: grid;
     max-width: 1200px;
     margin: 0 auto;
@@ -238,7 +231,7 @@ footer p {
 }
 
 header {
-    background-color: #8ECCE0;
+    background-color: #8ecce0;
 }
 
 main {
@@ -295,3 +288,47 @@ select option:checked {
   background-color: #007bff; /* Change background color of selected option */
   color: #fff; /* Change text color of selected option */
 }
+
+
+
+#login-block,
+#signup-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.form {
+    width: 600px; /* Set a fixed width for the form */
+    padding: 20px;
+    background-color: #c9e0c5;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form input[type="text"],
+.form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #50754a;
+    color: #fff;
+    cursor: pointer;
+}
+
+.form input[type="submit"]:hover {
+    background-color: #3e663c;
+}
+
