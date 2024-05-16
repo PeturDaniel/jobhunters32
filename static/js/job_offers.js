@@ -56,15 +56,18 @@ document.getElementById('order_due_date').addEventListener('click', function () 
 
 const orderJobs = (order_by) => {
     console.log('Fetching jobs sorted by:', order_by)
-    fetch('/lausstorf/?order_by=' + {order_by})
+    fetch('/lausstorf/?order_by=' + encodeURIComponent(order_by))
         .then(response =>
             response.text()
         )
         .then(data => {
             const parser = new DOMParser();
             const doc = parser.parseFromString(data, 'text/html');
-            const ordered_job_offers = doc.querySelector('#job_offers_for')
-            ordered_job_offers.innerHTML = data;
+            const ordered_job_offers = doc.querySelector('#job_offers_for');
+            const current_job_offers = document.querySelector('#job_offers_for');
+            if (current_job_offers.innerHTML && ordered_job_offers.innerHTML) {
+                current_job_offers.innerHTML = ordered_job_offers.innerHTML;
+            }
         })
 
 }

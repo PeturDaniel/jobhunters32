@@ -22,6 +22,9 @@ def index(request):
             unique_categories.append(category)
 
     order_by = request.GET.get('order_by')
+    print("AAAA")
+    print(order_by)
+    print("BBBB")
     if order_by not in ['publish_date', 'due_date']:
         order_by = 'publish_date'
     job_offers = JobOffer.objects.all().order_by('-' + order_by)

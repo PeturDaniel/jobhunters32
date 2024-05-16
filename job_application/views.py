@@ -3,7 +3,8 @@ from formtools.wizard.views import SessionWizardView
 from job_application.forms import JobRecommendationFormSet, JobExperienceFormSet, ApplicationForm, ReviewForm
 from job_offers.models import JobOffer
 from user.models import JobSeekerProfile
-from django.http import HttpResponse
+from job_application.models import Application
+from django.http import HttpResponseRedirect
 
 
 
@@ -33,6 +34,9 @@ class JobApplicationWizard(SessionWizardView):
         job_offer = JobOffer.objects.get(pk=job_offer_id)
         current_user = self.request.user
         job_seeker = JobSeekerProfile.objects.get(user_id=current_user.id)
+        if Application.objects.filter(job_offer_id=job_offer_id, user_id=job_seeker.id).exists():
+            return redirect('success')
+
         application_form = form_list[0]
         application = application_form.save(commit=False)
         application.user = job_seeker
@@ -56,5 +60,4 @@ class JobApplicationWizard(SessionWizardView):
                 experience.job_application = application
                 experience.save()
                 counter += 1
-        return redirect('success')
-
+        return HttpResponseRedirect('success')
