@@ -44,19 +44,37 @@ const filterCategory = (unique_categories) => {
     });
 }
 
-const filterOrder = (order_by) => {
-    const due_date = due_date.value;
-    const jobs = document.querySelectorAll(".well_job");
+document.getElementById('order_publish_date').addEventListener('click', function () {
+    updateURL('publish_date');
+    orderJobs('publish_date');
+})
 
-    jobs.forEach((job) => {
-        due_date = job.innerText.trim().split('\n')
-        if (due_date[1].includes(due_date)) {
-            job.classList.remove("hidden")
-        } else {
-            job.classList.add("hidden");
-        }
-    });
+document.getElementById('order_due_date').addEventListener('click', function () {
+    updateURL('due_date');
+    orderJobs('due_date');
+})
+
+const orderJobs = (order_by) => {
+    console.log('Fetching jobs sorted by:', order_by)
+    fetch('/lausstorf/?order_by=' + {order_by})
+        .then(response =>
+            response.text()
+        )
+        .then(data => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(data, 'text/html');
+            const ordered_job_offers = doc.querySelector('#job_offers_for')
+            ordered_job_offers.innerHTML = data;
+        })
+
 }
+
+function updateURL(order_by) {
+    const url = new URL(window.location.href);
+    url.searchParams.set('order_by', order_by);
+    window.history.pushState({}, '', url);
+}
+
 const filterApplied = () => {
     const checkbox = document.getElementById("checkbox")
     const bla = document.querySelectorAll(".application")

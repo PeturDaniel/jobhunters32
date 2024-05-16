@@ -23,19 +23,16 @@
     {% endfor %}
 </select>
 
-<select id="order_by" onchange="filterOrder()">
-    <option value="" selected disabled hidden>Raða eftir</option>
-    <option value="">Raða eftir</option>
-    <option value="publish_date">Umsókn birt</option>
-    <option value="due_date">Umsóknarfrestur</option>
+<label for="order_publish_date">Raða eftir: </label>
+<button id="order_publish_date">Umsókn birt</button>
+<button id="order_due_date">Umsóknarfrestur</button>
 
-</select>
         
 <label for="checkbox">Aðeins sótt um störf: </label>
 <script type="text/javascript" class="application"> {{ job_applications }}</script>
 <input id="checkbox" onchange="filterApplied()" type="checkbox"/>
 
-    <div class="job_offers">
+    <div class="job_offers" id="job_offers_for">
         {% for job_offer in job_offers %}
         {% include 'job_offers_page/single_job_offer.html' with job_offer=job_offer %}
         {% endfor %}

@@ -8,10 +8,8 @@ from job_application.models import Application
 from employers.models import Employer
 
 def index(request):
-    job_offers = JobOffer.objects.all().order_by(Lower('title'))
     employers = Employer.objects.values_list('name', flat=True).order_by(Lower('name'))
     categories = JobOffer.objects.values_list('category', flat=True).order_by(Lower('category'))
-    due_date = JobOffer.objects.values_list('due_date', flat=True).order_by('due_date')
 
     unique_employers = []
     for employer in employers:
@@ -23,13 +21,15 @@ def index(request):
         if category not in unique_categories:
             unique_categories.append(category)
 
-
+    order_by = request.GET.get('order_by')
+    if order_by not in ['publish_date', 'due_date']:
+        order_by = 'publish_date'
+    job_offers = JobOffer.objects.all().order_by('-' + order_by)
 
     context = {
         'job_offers': job_offers,
         'unique_employers': unique_employers,
         'unique_categories': unique_categories,
-        'due_dates': due_date,
     }
 
     if request.user.is_authenticated:
