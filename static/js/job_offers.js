@@ -92,26 +92,20 @@ const doSearchJobs = () => {
 const filterEmployer = () => {
     const company = document.getElementById('unique-employers').value;
     const jobs = document.querySelectorAll(".well-job");
-
-    jobs.forEach((job) => {
-        let job_title = job.innerText.trim().split('\n')
-        if (job_title[2].includes(company)) {
-            job.classList.remove("hidden")
-        }
-        else {
-            job.classList.add("hidden");
-        }
-    });
+    filterJobs(jobs, company, 2)
 }
 
 const filterCategory = () => {
     const category = document.getElementById('unique-categories').value;
     const jobs = document.querySelectorAll(".well-job");
+    filterJobs(jobs, category, 1)
+}
 
+const filterJobs = (jobs, filter, index) => {
     jobs.forEach((job) => {
-        let job_category = job.innerText.trim().split('\n')
-        if (job_category[1].includes(category)) {
-            job.classList.remove("hidden")
+        let job_inner_text = job.innerText.trim().split('\n')
+        if (job_inner_text[index].includes(filter)) {
+            job.classList.remove('hidden');
         }
         else {
             job.classList.add("hidden");
@@ -133,7 +127,6 @@ const orderJobs = (order_by) => {
                 current_job_offers.innerHTML = ordered_job_offers.innerHTML;
             }
         })
-
 }
 
 function updateURL(order_by) {
