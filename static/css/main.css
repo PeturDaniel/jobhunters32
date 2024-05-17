@@ -298,3 +298,30 @@ select option:checked {
   background-color: #3e663c;
 }
 
+.application {
+  flex-basis: calc(33.33% - 10px);
+  background-color: #C9E0C5;
+  padding: 10px;
+  margin: 5px;
+  border: 0.5px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+#id_0-name, #id_0-street_name, #id_0-house_number, #id_0-city, #id_0-country, #id_0-postal_code {
+  margin-top: 10px;
+}
+
+#id_0-cover_letter {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#id_1-1-name, #id_1-2-name, #id_2-1-place, #id_2-2-place {
+  margin-top: 20px;
+}
+
+label[for="id_1-1-name"], label[for="id_1-2-name"], label[for="id_2-1-place"], label[for="id_2-2-place"] {
+  margin-top: 20px;
+}
