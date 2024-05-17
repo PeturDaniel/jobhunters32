@@ -15,8 +15,8 @@
         {% endfor %}
     </select>
     <select id="unique-categories">
-        <option value="" selected disabled hidden>Allir starfsflokkar</option>
-        <option value="">Allir starfsflokkar</option>
+        <option value="all-categories" selected disabled hidden>Allir starfsflokkar</option>
+        <option value="all-categories">Allir starfsflokkar</option>
         {% for category in unique_categories %}
             <option value="{{ category }}">{{ category }}</option>
         {% endfor %}

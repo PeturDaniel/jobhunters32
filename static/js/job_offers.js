@@ -1,30 +1,78 @@
+const search = document.getElementById('search-box')
+const employer = document.getElementById('unique-employers')
+const category = document.getElementById('unique-categories')
+const publish_date = document.getElementById('order-publish-date')
+const due_date = document.getElementById('order-due-date')
+const checkbox = document.getElementById('checkbox')
+
 //Search bar event listener
-document.getElementById('search-box').addEventListener('input', function () {
+search.addEventListener('input', function () {
+    const s = 'search'
+    resetFilters(s)
     doSearchJobs()
 })
 
 //Dropdown filters event listeners
-document.getElementById('unique-employers').addEventListener('change', function () {
+employer.addEventListener('change', function () {
+    const e = 'employer'
+    resetFilters(e)
     filterEmployer()
 })
-document.getElementById('unique-categories').addEventListener('change', function () {
+category.addEventListener('change', function () {
+    const c = 'category'
+    resetFilters(c)
     filterCategory()
 })
 
-//Order buttons event listeners
-document.getElementById('order-publish-date').addEventListener('click', function () {
+//Order by buttons event listeners
+publish_date.addEventListener('click', function () {
+    const p = 'publish'
+    resetFilters(p)
     updateURL('publish_date');
     orderJobs('publish_date');
 })
-document.getElementById('order-due-date').addEventListener('click', function () {
+due_date.addEventListener('click', function () {
+    const d = 'due'
+    resetFilters(d)
     updateURL('due_date');
     orderJobs('due_date');
 })
 
 //Checkbox event listener
-document.getElementById('checkbox').addEventListener('change', function () {
+checkbox.addEventListener('change', function () {
+    const cb = 'checkbox'
+    resetFilters(cb)
     filterApplied()
 })
+
+const resetFilters = (event) => {
+    if (event === 'publish' || event === 'due') {
+        search.value = ''
+        employer.selectedIndex = 0;
+        category.selectedIndex = 0;
+        checkbox.checked = false
+    }
+    else if (event === 'search') {
+        employer.selectedIndex = 0;
+        category.selectedIndex = 0;
+        checkbox.checked = false
+    }
+    else if (event === 'employer') {
+        search.value = ''
+        category.selectedIndex = 0;
+        checkbox.checked = false
+    }
+    else if (event === 'category') {
+        search.value = ''
+        employer.selectedIndex = 0;
+        checkbox.checked = false
+    }
+    else if (event === 'checkbox') {
+        search.value = ''
+        employer.selectedIndex = 0;
+        category.selectedIndex = 0;
+    }
+}
 
 const doSearchJobs = () => {
     const jobs = document.querySelectorAll(".well-job");
