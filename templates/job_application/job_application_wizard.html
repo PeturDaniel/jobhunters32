@@ -1,9 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
-
-
 {% block content %}
-    <p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
+    <p id="application-step">Skref {{ wizard.steps.step1 }} af {{ wizard.steps.count }}</p>
     {% if wizard.steps.step1 == 1 %}
         <h4>Persónulegar upplýsingar</h4>
     {% endif %}
@@ -57,14 +55,17 @@
         <p>Starfslok: {{ xp.end_date }}</p>
     {% endfor %}
     {% endif %}
-    {% if wizard.steps.prev %}
-    <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.first }}">{% translate "Fyrsta skref" %}</button>
-    <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}">{% translate "Tilbaka" %}</button>
-    {% endif %}
-    {% if wizard.steps.next %}
-        <input type="submit" value="{% translate "Halda áfram" %}"/>
-    {% else %}
-        <input type="submit" value="{% translate "Senda inn"  %}"/>
-    {% endif %}
+    <div class="appl-buttons">
+        {% if wizard.steps.prev %}
+        <button class="appl-custom-button" name="wizard_goto_step" type="submit" value="{{ wizard.steps.first }}">{% translate "Fyrsta skref" %}</button>
+        <button class="appl-custom-button" name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}">{% translate "Tilbaka" %}</button>
+        {% endif %}
+        {% if wizard.steps.next %}
+            <input class="appl-custom-button" type="submit" value="{% translate "Halda áfram" %}"/>
+        {% else %}
+            <input class="appl-custom-button" type="submit" value="{% translate "Senda inn"  %}"/>
+        {% endif %}
+    </div>
+
     </form>
 {% endblock %}

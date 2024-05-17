@@ -92,6 +92,10 @@ footer p {
   object-fit: cover;
 }
 
+.nav-item {
+  padding-right: 5px;
+}
+
 .employer-profile-photo {
   padding-top: 10px;
   width: 100px;
@@ -214,6 +218,10 @@ footer p {
 }
 
 /* Search Box Styles */
+.input-group {
+  padding-bottom: 10px;
+}
+
 #search-box {
   width: 200px;
   height: 40px;
@@ -226,7 +234,7 @@ footer p {
 }
 
 #search-box:hover {
-  border-color: #66afe9;
+  border-color: #8ecce0;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -301,6 +309,10 @@ select option:checked {
   background-color: #3e663c;
 }
 
+.helptext {
+  display: none;
+}
+
 .application {
   flex-basis: calc(33.33% - 10px);
   background-color: #C9E0C5;
@@ -312,9 +324,31 @@ select option:checked {
   transition: all 0.3s ease;
 }
 
+#application-step {
+  padding-top: 10px;
+}
+
 #id_0-name, #id_0-street_name, #id_0-house_number, #id_0-city, #id_0-country, #id_0-postal_code {
   margin-top: 10px;
 }
+
+.appl-buttons {
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.appl-custom-button {
+  background-color: #efefef;
+  color: #2a2f3b;
+  padding: 10px 20px;
+  margin: 5px;
+  border: 1px solid #466742;
+  border-radius: 0.5em;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, transform 0.1s, border-color 0.3s;
+}
+
 
 #id_0-cover_letter {
   margin-top: 10px;
@@ -340,14 +374,54 @@ label[for="id_1-1-name"], label[for="id_1-2-name"], label[for="id_2-1-place"], l
   transition: background-color 0.3s, color 0.3s, transform 0.1s, border-color 0.3s;
 }
 
+.custom-button:focus {
+  background-color: #50754a;
+  color: #fff;
+}
+
 .custom-button:hover {
   background-color: #50754a;
   color: #fff;
 }
+
 #flag_id_0-country {
   display: none;
 }
 
 .country-select-flag {
   display: none;
+}
+
+.filter-group {
+  padding-bottom: 10px;
+}
+
+#order-label {
+  padding-left: 30px;
+}
+
+#checkbox-label {
+  padding-left: 30px;
+}
+
+.page-title {
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.container {
+  padding-bottom: 30px;
+}
+
+.confirmation-title {
+  padding-top: 50px;
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.confirmation-button {
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }
