@@ -6,7 +6,7 @@ from job_application.models import Application
 from job_offers.models import JobOffer
 from employers.models import Employer
 
-# Create your views here.
+
 def register(request):
     if request.method == 'POST':
         form = UserCreationForm(data=request.POST)
@@ -20,7 +20,6 @@ def register(request):
 
 def job_seeker_profile(request):
     profile = JobSeekerProfile.objects.filter(user=request.user).first()
-
     if request.method == 'POST':
         form = JobSeekerProfileForm(instance=profile, data=request.POST)
         if form.is_valid():
@@ -36,7 +35,8 @@ def job_seeker_profile(request):
 def user_applications(request):
     profile = JobSeekerProfile.objects.filter(user=request.user).first()
     job_applications = Application.objects.filter(user_id=profile.id).all()
-    information_temp = {'title': None, 'date': None, 'status': None, 'company': None, 'percentage': None, 'id': None, 'photo': None}
+    information_temp = {'title': None, 'date': None, 'status': None, 'company': None,
+                        'percentage': None, 'id': None, 'photo': None}
     information = []
     for application in job_applications:
         job_offer = JobOffer.objects.filter(id=application.job_offer_id).first()
