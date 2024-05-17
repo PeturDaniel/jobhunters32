@@ -8,7 +8,9 @@
     <p>Starfsflokkur: {{ job_offer.category }}</p>
     <div class="well-job">
         <a href="/vinnustadir/{{ job_offer.employer.id }}" class="card-link">
-            <img class="employer-profile-photo" src="{{ job_offer.employer.profile_photo }}" alt="#"/>
+            <div class="image-container">
+                <img class="employer-profile-photo" src="{{ job_offer.employer.profile_photo }}" alt="#"/>
+            </div>
             <h4 class="employer-title">{{ job_offer.employer.name }}</h4>
             <p>{{ job_offer.employer.address }}</p>
         </a>
@@ -18,7 +20,7 @@
             {% if enable %}
                 <form method="get" action="{% url 'job_application_wizard_start' job_offer_id=job_offer.id %}">
                     {% csrf_token %}
-                    <button type="submit">Sækja um</button>
+                    <button type="submit" class="custom-button">Sækja um</button>
                 </form>
             {% else %}
                 <h5>Upplýsingar um umsókn</h5>

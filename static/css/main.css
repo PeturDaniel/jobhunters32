@@ -325,3 +325,19 @@ select option:checked {
 label[for="id_1-1-name"], label[for="id_1-2-name"], label[for="id_2-1-place"], label[for="id_2-2-place"] {
   margin-top: 20px;
 }
+
+.custom-button {
+  background-color: #C9E0C5;
+  color: #2a2f3b;
+  padding: 10px 20px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 0.5em;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, transform 0.1s, border-color 0.3s;
+}
+
+.custom-button:hover {
+  background-color: #50754a;
+  color: #fff;
+}
