@@ -7,25 +7,27 @@
         <input type="search" class="form-control" id="search-box" placeholder="Leit..."/>
     </div>
     <br>
-    <select id="unique-employers">
-        <option value="" selected disabled hidden>Öll fyrirtæki</option>
-        <option value="">Öll fyrirtæki</option>
-        {% for employer in unique_employers %}
-            <option value="{{ employer }}">{{ employer }}</option>
-        {% endfor %}
-    </select>
-    <select id="unique-categories">
-        <option value="all-categories" selected disabled hidden>Allir starfsflokkar</option>
-        <option value="all-categories">Allir starfsflokkar</option>
-        {% for category in unique_categories %}
-            <option value="{{ category }}">{{ category }}</option>
-        {% endfor %}
-    </select>
-    <label for="order-publish-date">Raða eftir: </label>
-        <button id="order-publish-date">Umsókn birt</button>
-        <button id="order-due-date">Umsóknarfrestur</button>
-    <label for="checkbox">Aðeins sótt um störf: </label>
-        <input id="checkbox" type="checkbox"/>
+    <div class="filter-group">
+        <select id="unique-employers">
+            <option value="all-employers" selected disabled hidden>Öll fyrirtæki</option>
+            <option value="all-employers">Öll fyrirtæki</option>
+            {% for employer in unique_employers %}
+                <option value="{{ employer }}">{{ employer }}</option>
+            {% endfor %}
+        </select>
+        <select id="unique-categories">
+            <option value="all-categories" selected disabled hidden>Allir starfsflokkar</option>
+            <option value="all-categories">Allir starfsflokkar</option>
+            {% for category in unique_categories %}
+                <option value="{{ category }}">{{ category }}</option>
+            {% endfor %}
+        </select>
+        <label for="order-publish-date">Raða eftir: </label>
+            <button id="order-publish-date">Umsókn birt</button>
+            <button id="order-due-date">Umsóknarfrestur</button>
+        <label for="checkbox">Aðeins sótt um störf: </label>
+            <input id="checkbox" type="checkbox"/>
+    </div>
     <div class="job-offers" id="job-offers-for">
         {% for job_offer in job_offers %}
         {% include 'job_offers_page/single_job_offer.html' with job_offer=job_offer %}
