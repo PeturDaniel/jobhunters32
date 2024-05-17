@@ -28,7 +28,7 @@
                 <p>Staða umsóknar: {{ context.status }}</p>
             {% endif %}
         {% else %}
-            <p>Þú þarft að breyta <a href='{% url 'job_seeker_profile' %}'>prófílnum</a> þínum áður en þú sækir um</p>
+            <p>Þú þarft að skrá inn <a href='{% url 'job-seeker-profile' %}'>fullt nafn</a> áður en þú sækir um</p>
         {% endif %}
     {% else %}
         <p>Þú þarft að vera <a href='{% url 'login' %}'>innskráður</a> til að sækja um.</p>
