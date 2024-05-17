@@ -15,6 +15,16 @@ class JobApplicationWizard(SessionWizardView):
     form_list = [ApplicationForm, JobRecommendationFormSet, JobExperienceFormSet, ReviewForm]
     template_name = 'job_application/job_application_wizard.html'
 
+    def get_form_initial(self, step):
+        if step == '0':
+            initial = self.initial_dict.get(step, {})
+            current_user = self.request.user
+            job_seeker = JobSeekerProfile.objects.get(user_id=current_user.id)
+            name = job_seeker.full_name
+            initial.update({'name': name})
+            return initial
+        return self.initial_dict.get(step, {})
+    
     def get_context_data(self, form, **kwargs):
         previous_data = {}
         current_step = self.steps.current
