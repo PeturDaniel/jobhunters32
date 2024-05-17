@@ -21,7 +21,7 @@ class Application(models.Model):
 class JobRecommendation(models.Model):
     job_application = models.ForeignKey(Application, related_name='recommendations', on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
-    email = models.CharField(max_length=255)
+    email = models.EmailField(max_length=255)
     phone = models.IntegerField()
     contacted = models.BooleanField(default=True)
     role = models.CharField(max_length=255)
