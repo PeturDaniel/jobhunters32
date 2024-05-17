@@ -16,7 +16,7 @@
     {% if wizard.steps.step1 == 4 %}
         <h4>Yfirlit</h4>
     {% endif %}
-    <form action="" method="post">{% csrf_token %}
+    <form action="" method="post" class="application">{% csrf_token %}
     <table>
     {{ wizard.management_form }}
     {% if wizard.form.forms %}
