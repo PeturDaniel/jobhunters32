@@ -7,6 +7,7 @@ from django.forms import formset_factory
 
 class ApplicationForm(forms.ModelForm):
     country = CountryField().formfield(widget=CountrySelectWidget())
+
     class Meta:
         model = Application
         fields = ['name', 'street_name', 'house_number', 'city', 'country', 'postal_code', 'cover_letter']
@@ -27,6 +28,7 @@ class JobExperienceForm(forms.ModelForm):
         model = JobExperience
         fields = ['place', 'role', 'start_date', 'end_date']
         widgets = {'start_date': forms.DateInput(attrs={'type': 'date'}), 'end_date': forms.DateInput(attrs={'type': 'date'})}
+
 
 JobRecommendationFormSet = formset_factory(JobReccomendationForm, extra=3)
 JobExperienceFormSet = formset_factory(JobExperienceForm, extra=3)
