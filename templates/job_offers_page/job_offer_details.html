@@ -3,15 +3,17 @@
     <h2>{{ job_offer.title }}</h2>
     <p>{{ job_offer.description|safe }}</p>
     <p>Hlutfall: {{ job_offer.percentage }}</p>
-    <p>Umsóknarfrestur: {{ job_offer.due_date }}</p>
-    <p>Störf hefjast: {{ job_offer.start_date }}</p>
+    <p>Umsóknarfrestur: {{ job_offer.due_date|date:"d/m/Y" }}</p>
+    <p>Störf hefjast: {{ job_offer.start_date|date:"d/m/Y" }}</p>
     <p>Starfsflokkur: {{ job_offer.category }}</p>
-    <div class="well-job">
-        <a href="/vinnustadir/{{ job_offer.employer.id }}" class="card-link">
-            <img class="employer-profile-photo" src="{{ job_offer.employer.profile_photo }}" alt="#"/>
-            <h4 class="employer-title">{{ job_offer.employer.name }}</h4>
-            <p>{{ job_offer.employer.address }}</p>
-        </a>
+    <div class="job-offers">
+        <div class="well-job">
+            <a href="/vinnustadir/{{ job_offer.employer.id }}" class="card-link">
+                <img class="employer-profile-photo" src="{{ job_offer.employer.profile_photo }}" alt="#"/>
+                <h4 class="employer-title">{{ job_offer.employer.name }}</h4>
+                <p>{{ job_offer.employer.address }}</p>
+            </a>
+        </div>
     </div>
     {% if user.is_authenticated %}
         {% if context.is_job_seeker %}
