@@ -27,7 +27,7 @@ def job_seeker_profile(request):
             profile = form.save(commit=False)
             profile.user = request.user
             profile.save()
-            return redirect('job_seeker_profile')
+            return redirect('job-seeker-profile')
     return render(request, 'job_seeker_page/job_seeker_profile.html', {
         'form': JobSeekerProfileForm(instance=profile)
     })
