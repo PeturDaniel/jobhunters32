@@ -24,7 +24,7 @@ class JobApplicationWizard(SessionWizardView):
             initial.update({'name': name})
             return initial
         return self.initial_dict.get(step, {})
-    
+
     def get_context_data(self, form, **kwargs):
         previous_data = {}
         current_step = self.steps.current
