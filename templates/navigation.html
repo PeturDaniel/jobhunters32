@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg ">
     <div class="container-fluid">
         <a href="{% url 'job-offers-index' %}">
-            <img src="{% static 'images/img_1.png' %}" alt="Logo" class="navbar-logo">
+            <img src="{% static 'images/img_1.png' %}" alt="Logo síðu" class="navbar-logo">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -34,7 +34,7 @@
                     <a class="nav-link" href="{% url 'job-seeker-profile' %}">Velkomin/n {{ user.jobseekerprofile.full_name }} </a>
                 </li>
                 <a href="{% url 'job-seeker-profile' %}">
-                    <img src="{{ user.jobseekerprofile.profile_image }}" class="profile-image"/>
+                    <img src="{{ user.jobseekerprofile.profile_image }}" class="profile-image" alt="Prófílmynd"/>
                 </a>
             {% endif %}
         </div>
