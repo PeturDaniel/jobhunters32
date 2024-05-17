@@ -19,7 +19,7 @@ class ReviewForm(forms.Form):
 class JobReccomendationForm(forms.ModelForm):
     class Meta:
         model = JobRecommendation
-        fields = ['name', 'email', 'phone', 'contacted', 'role']
+        fields = ['name', 'email', 'phone', 'role', 'contacted']
 
 
 class JobExperienceForm(forms.ModelForm):

@@ -42,12 +42,12 @@
         <p>Nafn: {{ recommendation.name }}</p>
         <p>Email: {{ recommendation.email }}</p>
         <p>Símanúmer {{ recommendation.phone }}</p>
+        <p>Hlutverk: {{ recommendation.role }}</p>
         {% if recommendation.contacted %}
             <p>Má hafa samband: Já</p>
         {% else %}
             <p>Má hafa samband: Nei</p>
         {% endif %}
-        <p>Hlutverk: {{ recommendation.role }}</p>
     {% endfor %}
     <h5>Fyrri störf</h5>
     {% for xp in previous_cleaned_data.2 %}
