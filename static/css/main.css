@@ -341,3 +341,10 @@ label[for="id_1-1-name"], label[for="id_1-2-name"], label[for="id_2-1-place"], l
   background-color: #50754a;
   color: #fff;
 }
+#flag_id_0-country {
+  display: none;
+}
+
+.country-select-flag {
+  display: none;
+}

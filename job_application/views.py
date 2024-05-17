@@ -7,9 +7,9 @@ from job_application.models import Application
 from django.http import HttpResponseRedirect
 
 
-
 def success(request):
     return render(request, 'job_application/success.html')
+
 
 class JobApplicationWizard(SessionWizardView):
     form_list = [ApplicationForm, JobRecommendationFormSet, JobExperienceFormSet, ReviewForm]

@@ -1,44 +1,42 @@
 {% load static %}
 <nav class="navbar navbar-expand-lg ">
-  <div class="container-fluid">
-    <a href="{% url 'job-offers-index' %}">
-        <img src="{% static 'images/img_1.png' %}" alt="Logo" class="navbar-logo">
-    </a>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'job-offers-index' %}">Laus Störf</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'employers-index' %}">Vinnustaðir</a>
-        </li>
-        {% if user.is_authenticated %}
-            <li class="nav-item"><a class="nav-link" href="{% url 'job-seeker-profile' %}">Prófíll</a></li>
-            <li class="nav=item"><a class="nav-link" href="{% url 'applications-index' %}">Umsóknir</a></li>
-            <li>
-                <form action="{% url 'logout' %}" method="post">
-                    {% csrf_token %}
-                    <button class="nav-link" type="submit">Útskráning</button>
-                </form>
-            </li>
-        {% else %}
-            <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Skrá inn</a></li>
-            <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Nýskráning</a></li>
-        {% endif %}
-      </ul>
-        {% if user.is_authenticated %}
-            <li class="nav-link">
-                <a class="nav-link" href="{% url 'job-seeker-profile' %}">Velkomin/n {{ user.jobseekerprofile.full_name }} </a>
-            </li>
-            <a href="{% url 'job-seeker-profile' %}">
-                <img src="{{ user.jobseekerprofile.profile_image }}" class="profile-image"/>
-            </a>
-        {% endif %}
-
+    <div class="container-fluid">
+        <a href="{% url 'job-offers-index' %}">
+            <img src="{% static 'images/img_1.png' %}" alt="Logo" class="navbar-logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'job-offers-index' %}">Laus Störf</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'employers-index' %}">Vinnustaðir</a>
+                </li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'job-seeker-profile' %}">Prófíll</a></li>
+                    <li class="nav=item"><a class="nav-link" href="{% url 'applications-index' %}">Umsóknir</a></li>
+                    <li>
+                        <form action="{% url 'logout' %}" method="post">
+                            {% csrf_token %}
+                            <button class="nav-link" type="submit">Útskráning</button>
+                        </form>
+                    </li>
+                {% else %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Skrá inn</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Nýskráning</a></li>
+                {% endif %}
+            </ul>
+            {% if user.is_authenticated %}
+                <li class="nav-link">
+                    <a class="nav-link" href="{% url 'job-seeker-profile' %}">Velkomin/n {{ user.jobseekerprofile.full_name }} </a>
+                </li>
+                <a href="{% url 'job-seeker-profile' %}">
+                    <img src="{{ user.jobseekerprofile.profile_image }}" class="profile-image"/>
+                </a>
+            {% endif %}
+        </div>
     </div>
-  </div>
 </nav>
