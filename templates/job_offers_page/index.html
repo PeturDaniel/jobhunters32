@@ -1,42 +1,37 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
+    <br />
     <h2 class="page_title">Laus Störf</h2>
     <div class="input-group">
         <input type="search" oninput="doSearchJobs()" class="form-control" id="search-box" placeholder="Leit..."/>
     </div>
-
     <br>
-
-<select id="unique_employers" onchange="filterCompany(unique_employers)">
-    <option value="" selected disabled hidden>Fyrirtæki</option>
-    <option value="">Hreinsa síu</option>
-    {% for employer in unique_employers %}
-        <option value="{{ employer }}">{{ employer }}</option>
-    {% endfor %}
-</select>
-
-<select id="unique_categories" onchange="filterCategory(unique_categories)">
-    <option value="" selected disabled hidden>Starfsflokkur</option>
-    <option value="">Hreinsa síu</option>
-    {% for category in unique_categories %}
-        <option value="{{ category }}">{{ category }}</option>
-    {% endfor %}
-</select>
-
-<label for="order_publish_date">Raða eftir: </label>
-<button id="order_publish_date">Umsókn birt</button>
-<button id="order_due_date">Umsóknarfrestur</button>
-
-        
-<label for="checkbox">Aðeins sótt um störf: </label>
-<script type="text/javascript" class="application"> {{ job_applications }}</script>
-<input id="checkbox" onchange="filterApplied()" type="checkbox"/>
-
+    <select id="unique_employers" onchange="filterCompany(unique_employers)">
+        <option value="" selected disabled hidden>Fyrirtæki</option>
+        <option value="">Hreinsa síu</option>
+        {% for employer in unique_employers %}
+            <option value="{{ employer }}">{{ employer }}</option>
+        {% endfor %}
+    </select>
+    <select id="unique_categories" onchange="filterCategory(unique_categories)">
+        <option value="" selected disabled hidden>Starfsflokkur</option>
+        <option value="">Hreinsa síu</option>
+        {% for category in unique_categories %}
+            <option value="{{ category }}">{{ category }}</option>
+        {% endfor %}
+    </select>
+    <label for="order_publish_date">Raða eftir: </label>
+        <button id="order_publish_date">Umsókn birt</button>
+        <button id="order_due_date">Umsóknarfrestur</button>
+    <label for="checkbox">Aðeins sótt um störf: </label>
+        <input id="checkbox" onchange="filterApplied()" type="checkbox"/>
     <div class="job_offers" id="job_offers_for">
         {% for job_offer in job_offers %}
         {% include 'job_offers_page/single_job_offer.html' with job_offer=job_offer %}
         {% endfor %}
     </div>
-
+    <br />
+    <script type="text/javascript" class="application"> {{ job_applications }}</script>
+    <script src="{% static 'js/job_offers.js' %}"></script>
 {% endblock %}
-

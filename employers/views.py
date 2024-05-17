@@ -1,4 +1,3 @@
-from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
 from employers.models import Employer
 from job_offers.models import JobOffer
