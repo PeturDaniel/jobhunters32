@@ -7,6 +7,7 @@ from user.models import JobSeekerProfile
 from job_application.models import Application
 from employers.models import Employer
 
+
 def index(request):
     employers = Employer.objects.values_list('name', flat=True).order_by(Lower('name'))
     categories = JobOffer.objects.values_list('category', flat=True).order_by(Lower('category'))
@@ -22,9 +23,6 @@ def index(request):
             unique_categories.append(category)
 
     order_by = request.GET.get('order_by')
-    print("AAAA")
-    print(order_by)
-    print("BBBB")
     if order_by not in ['publish_date', 'due_date']:
         order_by = 'publish_date'
     job_offers = JobOffer.objects.all().order_by('-' + order_by)
@@ -37,13 +35,10 @@ def index(request):
 
     if request.user.is_authenticated:
         profile = JobSeekerProfile.objects.filter(user=request.user).first()
-        print(profile)
         if profile is None:
-            job_applications = []
-            context['job_applications'] = job_applications
+            context['job_applications'] = []
         else:
             job_applications = Application.objects.filter(user_id=profile.id).values_list('job_offer_id', flat=True)
-            print(list(job_applications))
             context['job_applications'] = list(job_applications)
 
     return render(request, 'job_offers_page/index.html', context)
@@ -78,5 +73,3 @@ def get_job_offer_by_id(request, id):
             'job_offer': get_object_or_404(JobOffer, pk=id),
             'enable': True
         })
-
-
