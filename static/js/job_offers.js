@@ -13,8 +13,8 @@ const doSearchJobs = () => {
     });
 };
 
-const filterCompany = (unique_employers) => {
-    const company = unique_employers.value;
+const filterCompany = () => {
+    const company = document.getElementById('unique_employers').value;
     const jobs = document.querySelectorAll(".well_job");
 
     jobs.forEach((job) => {
@@ -28,8 +28,8 @@ const filterCompany = (unique_employers) => {
     });
 }
 
-const filterCategory = (unique_categories) => {
-    const category = unique_categories.value;
+const filterCategory = () => {
+    const category = document.getElementById('unique_categories').value;
     const jobs = document.querySelectorAll(".well_job");
 
     jobs.forEach((job) => {

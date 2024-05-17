@@ -7,7 +7,7 @@
         <input type="search" oninput="doSearchJobs()" class="form-control" id="search-box" placeholder="Leit..."/>
     </div>
     <br>
-    <select id="unique_employers" onchange="filterCompany(unique_employers)">
+    <select id="unique_employers" onchange="filterCompany()">
         <option value="" selected disabled hidden>Fyrirtæki</option>
         <option value="">Hreinsa síu</option>
         {% for employer in unique_employers %}
