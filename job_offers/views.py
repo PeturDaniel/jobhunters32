@@ -23,7 +23,11 @@ def index(request):
     order_by = request.GET.get('order_by')
     if order_by not in ['publish_date', 'due_date']:
         order_by = 'publish_date'
-    job_offers = JobOffer.objects.all().order_by('-' + order_by)
+    if order_by == 'publish_date':
+        job_offers = JobOffer.objects.all().order_by('-' + order_by)
+    else:
+        job_offers = JobOffer.objects.all().order_by(order_by)
+
 
     context = {
         'job_offers': job_offers,
