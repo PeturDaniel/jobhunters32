@@ -3,16 +3,29 @@ document.getElementById('search-box').addEventListener('input', function () {
     doSearchJobs()
 })
 
+//Dropdown filters event listeners
+document.getElementById('unique-employers').addEventListener('change', function () {
+    filterEmployer()
+})
+document.getElementById('unique-categories').addEventListener('change', function () {
+    filterCategory()
+})
+
 //Order buttons event listeners
 document.getElementById('order-publish-date').addEventListener('click', function () {
     updateURL('publish_date');
     orderJobs('publish_date');
 })
-
 document.getElementById('order-due-date').addEventListener('click', function () {
     updateURL('due_date');
     orderJobs('due_date');
 })
+
+//Checkbox event listener
+document.getElementById('checkbox').addEventListener('change', function () {
+    filterApplied()
+})
+
 const doSearchJobs = () => {
     const jobs = document.querySelectorAll(".well-job");
     const query = document.getElementById("search-box").value;
@@ -28,7 +41,7 @@ const doSearchJobs = () => {
     });
 };
 
-const filterCompany = () => {
+const filterEmployer = () => {
     const company = document.getElementById('unique-employers').value;
     const jobs = document.querySelectorAll(".well-job");
 
@@ -58,7 +71,6 @@ const filterCategory = () => {
     });
 }
 
-
 const orderJobs = (order_by) => {
     fetch('/lausstorf/?order_by=' + encodeURIComponent(order_by))
         .then(response =>
@@ -84,8 +96,8 @@ function updateURL(order_by) {
 
 const filterApplied = () => {
     const checkbox = document.getElementById("checkbox")
-    const bla = document.querySelectorAll(".application")
-    const applied_jobs = bla[0].innerText.slice(2, -1).split(", ")
+    const application_ids = document.querySelectorAll(".application")
+    const applied_jobs = application_ids[0].innerText.slice(2, -1).split(", ")
     const jobs = document.querySelectorAll(".well-job");
 
     jobs.forEach((job) => {
