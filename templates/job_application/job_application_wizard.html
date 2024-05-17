@@ -58,8 +58,8 @@
     {% endfor %}
     {% endif %}
     {% if wizard.steps.prev %}
-    <button name="wizard-goto-step" type="submit" value="{{ wizard.steps.first }}">{% translate "Fyrsta skref" %}</button>
-    <button name="wizard-goto-step" type="submit" value="{{ wizard.steps.prev }}">{% translate "Tilbaka" %}</button>
+    <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.first }}">{% translate "Fyrsta skref" %}</button>
+    <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}">{% translate "Tilbaka" %}</button>
     {% endif %}
     {% if wizard.steps.next %}
         <input type="submit" value="{% translate "Halda áfram" %}"/>
