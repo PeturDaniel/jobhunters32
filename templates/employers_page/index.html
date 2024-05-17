@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+    <br />
+    <h2 class="page_title">Vinnustaðir</h2>
+    <div class="input-group">
+        <input type="search" oninput="doSearchEmployers()" class="form-control" id="search-box" placeholder="Leit..."/>
+    </div>
+    <br />
+    <div class="employers">
+        {% for employer in employers %}
+        {% include 'employers_page/single_employer.html' with employer=employer %}
+        {% endfor %}
+    </div>
+    <br />
+{% endblock %}

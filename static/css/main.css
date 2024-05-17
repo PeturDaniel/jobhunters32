@@ -1,0 +1,334 @@
+/* General Styles */
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header, footer {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+}
+
+main {
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: auto;
+  background-color: #F6FFFE;
+}
+
+
+/* Footer Styles */
+
+footer {
+    background-color: #C9E0C5;
+    color: #F6FFFE;
+    padding: 10px;
+    text-align: center;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+footer li {
+    margin: 5px;
+}
+
+footer a {
+    color: inherit;
+    text-decoration: none;
+}
+footer p {
+    margin: 5px;
+}
+
+
+/* Job Offer Page Styles */
+
+.job_offer_page {
+    border-bottom: solid 2px rgba(155, 155, 155, .5);
+}
+
+/* Job Listing Styles */
+
+#jobs {
+    display: grid;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.job_offers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.employers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.well_job {
+    flex-basis: calc(33.33% - 10px);
+    background-color: #C9E0C5;
+    padding: 10px;
+    margin: 5px;
+    border: 0.5px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 10px; /* Adding rounded corners */
+    transition: all 0.3s ease; /* Adding transition for smooth effect */
+}
+
+.well_job:hover {
+    transform: scale(1.05); /* Making it slightly bigger on hover */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Adding shadow effect */
+    z-index: 1; /* Ensuring it's on top of other elements */
+}
+
+/* Image Styles */
+
+.navbar-logo,
+.profile_image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.employer-profile-photo {
+    padding-top: 10px;
+    width: 100px;
+    height: 100px;
+    object-fit: scale-down;
+}
+
+.employer-background {
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    width: 100%;
+    padding-bottom: 45%;
+    height: auto;
+    background-size: 70%;
+}
+.btn-group {
+    text-align: center;
+}
+
+.dropdown {
+    max-width: 15em;
+    position: relative;
+    margin: 2em;
+}
+
+.dropdown * {
+    box-sizing: border-box;
+}
+
+.select {
+    background: #C9E0C5;
+    color: #F6FFFE;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    border: 2px #2a2f3b solid;
+    border-radius: 0.5em;
+    padding: 1em;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.select-clicked {
+    border: 2px #26489a solid;
+    box-shadow: 0 0 0.8em #26489a;
+}
+
+.select:hover {
+    background: #323741;
+}
+
+.caret {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #fff;
+    transition: 0.3s;
+}
+
+.caret-rotate {
+    transform: rotate(180deg);
+}
+
+.menu {
+    list-style: none;
+    padding: 0.2em 0.5em;
+    background: #323741;
+    border: 1px solid #363a43;
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
+    border-radius: 0.5em;
+    color : #9fa5b5;
+    position: absolute;
+    overflow-y: auto;
+    top: 3em;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+    opacity: 0;
+    display: none;
+    transition: 0.2s;
+    z-index: 1;
+}
+
+.menu li {
+    padding: 0.7em 0.5em;
+    margin: 0.3em 0;
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+
+.menu li:hover {
+    background: #2a2a35;
+}
+
+.active {
+    background: #23242a;
+}
+.menu.show {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.card-link:link
+{
+    color: #212121;
+    text-decoration: none;
+}
+.card-link:visited
+{
+    color: #212121;
+    text-decoration: none;
+}
+.card-link:hover
+{
+    color: #212121;
+    text-decoration: none;
+}
+.card-link:active {
+    color: #212121;
+    text-decoration: none;
+}
+
+.card-footer {
+    background-color: #C9E0C5;
+}
+
+header {
+    background-color: #8ecce0;
+}
+
+main {
+    background-color: #F6FFFE;
+}
+
+.hidden {
+    display: none;
+}
+
+
+#search-box {
+    width: 200px;
+    height: 40px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 20px; /* Rounded corners */
+    transition: all 0.3s ease; /* Smooth transition */
+
+    /* Additional styling */
+    background-color: white;
+    color: #333;
+}
+
+#search-box:hover {
+    border-color: #66afe9; /* Change border color on hover */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
+}
+
+
+/* styles.css */
+
+/* Style for select elements */
+select {
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+  width: 200px;
+  margin-bottom: 10px;
+}
+
+select:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+select:focus {
+  border-color: #007bff; /* Change border color when focused */
+}
+
+select option:checked {
+  background-color: #007bff; /* Change background color of selected option */
+  color: #fff; /* Change text color of selected option */
+}
+
+
+
+#login-block,
+#signup-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.form {
+    width: 600px; /* Set a fixed width for the form */
+    padding: 20px;
+    background-color: #c9e0c5;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form input[type="text"],
+.form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #50754a;
+    color: #fff;
+    cursor: pointer;
+}
+
+.form input[type="submit"]:hover {
+    background-color: #3e663c;
+}
+

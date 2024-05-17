@@ -1,0 +1,11 @@
+<div class="well_job" id="{{ job_offer.id }}">
+    <a href="/lausstorf/{{ job_offer.id }}" class="card-link">
+        <img class="employer-profile-photo" src="{{ job_offer.employer.profile_photo }}" alt="#"/>
+        <h4 class="job-title">{{ job_offer.title }}</h4>
+        <h6 class="job-category">{{ job_offer.category }}</h6>
+        <h6 class="employer-title">{{ job_offer.employer.name }}</h6>
+        <p id="{{ job_offer.publish_date }}">Birt: {{job_offer.publish_date|date:"d/m/Y" }}</p>
+        <p id="{{ job_offer.due_date }}">Umsóknarfrestur: {{ job_offer.due_date|date:"d/m/Y" }}</p>
+    </a>
+</div>
+
