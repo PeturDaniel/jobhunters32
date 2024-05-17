@@ -1,7 +1,9 @@
 <div class="well-job">
     <a href="/vinnustadir/{{ employer.id }}" class="card-link">
-        <img class="employer-profile-photo" src="{{ employer.profile_photo }}" alt="#"/>
+        <div id="card-logo">
+            <img class="employer-profile-photo" src="{{ employer.profile_photo }}" alt="#"/>
+        </div>
         <h4 class="employer-title">{{ employer.name }}</h4>
-        <p>{{ employer.address }}</p>
+        <h6>{{ employer.address }}</h6>
     </a>
 </div>
