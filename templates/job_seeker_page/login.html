@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
     <div id="login-block">
+        <h1>Innskráning</h1>
         <form method="post" class="form form-horizontal">
             {% csrf_token %}
             {{ form }}
