@@ -236,7 +236,8 @@ select {
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  background-color: #fff;
+  background-color: #C9E0C5;
+  color: #2a2f3b;
   cursor: pointer;
   width: 200px;
   margin-bottom: 10px;
@@ -244,6 +245,8 @@ select {
 
 select:hover {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  background-color: #50754a;
+  color: #fff;
 }
 
 select:focus {
