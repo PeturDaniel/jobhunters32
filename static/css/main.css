@@ -45,12 +45,6 @@ footer p {
 }
 
 
-/* Job Offer Page Styles */
-
-.job_offer_page {
-    border-bottom: solid 2px rgba(155, 155, 155, .5);
-}
-
 /* Job Listing Styles */
 
 #jobs {
@@ -199,6 +193,7 @@ footer p {
 .active {
     background: #23242a;
 }
+
 .menu.show {
     display: block;
     opacity: 1;

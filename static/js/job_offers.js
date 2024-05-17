@@ -1,5 +1,7 @@
 //Search bar event listener
-document.getElementById('search-box')
+document.getElementById('search-box').addEventListener('input', function () {
+    doSearchJobs()
+})
 
 //Order buttons event listeners
 document.getElementById('order-publish-date').addEventListener('click', function () {
