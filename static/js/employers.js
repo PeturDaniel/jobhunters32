@@ -1,3 +1,8 @@
+//Search bar event listener
+document.getElementById('search-box').addEventListener('input', function () {
+    doSearchEmployers()
+})
+
 const doSearchEmployers = () => {
     const job_offers = document.querySelectorAll(".well-job");
     const query = document.getElementById("search-box").value;
