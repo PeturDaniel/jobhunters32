@@ -79,8 +79,8 @@ const orderJobs = (order_by) => {
         .then(data => {
             const parser = new DOMParser();
             const doc = parser.parseFromString(data, 'text/html');
-            const ordered_job_offers = doc.querySelector('#job_offers_for');
-            const current_job_offers = document.querySelector('#job_offers_for');
+            const ordered_job_offers = doc.querySelector('#job-offers-for');
+            const current_job_offers = document.querySelector('#job-offers-for');
             if (current_job_offers.innerHTML && ordered_job_offers.innerHTML) {
                 current_job_offers.innerHTML = ordered_job_offers.innerHTML;
             }
