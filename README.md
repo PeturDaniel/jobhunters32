@@ -14,3 +14,5 @@ Extra requirements:
 - Autofill á nafn í umsóknarferli
 - Útskráning
 - Mögulega fleira sem við erum að gleyma
+
+  github repo link: https://github.com/PeturDaniel/jobhunters32
