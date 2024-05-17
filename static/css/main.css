@@ -61,7 +61,7 @@ footer p {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 
-.job_offers {
+.job-offers {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -73,7 +73,7 @@ footer p {
     justify-content: space-between;
 }
 
-.well_job {
+.well-job {
     flex-basis: calc(33.33% - 10px);
     background-color: #C9E0C5;
     padding: 10px;
@@ -84,7 +84,7 @@ footer p {
     transition: all 0.3s ease; /* Adding transition for smooth effect */
 }
 
-.well_job:hover {
+.well-job:hover {
     transform: scale(1.05); /* Making it slightly bigger on hover */
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Adding shadow effect */
     z-index: 1; /* Ensuring it's on top of other elements */
@@ -93,7 +93,7 @@ footer p {
 /* Image Styles */
 
 .navbar-logo,
-.profile_image {
+.profile-image {
     width: 40px;
     height: 40px;
     border-radius: 50%;

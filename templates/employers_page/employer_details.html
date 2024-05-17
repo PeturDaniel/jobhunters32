@@ -10,7 +10,7 @@
     <p>{{ employer.job_offer.title }}</p>
     <br />
     <h5>Laus störf hjá {{employer.name}}:</h5>
-    <div class="job_offers">
+    <div class="job-offers">
         {% for job_offer in job_offers %}
         {% include 'job_offers_page/single_job_offer.html' with job_offer=job_offer %}
         {% endfor %}

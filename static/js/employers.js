@@ -1,5 +1,5 @@
 const doSearchEmployers = () => {
-    const job_offers = document.querySelectorAll(".well_job");
+    const job_offers = document.querySelectorAll(".well-job");
     const query = document.getElementById("search-box").value;
 
     job_offers.forEach((job_offer) => {

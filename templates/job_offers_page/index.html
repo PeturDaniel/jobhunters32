@@ -2,31 +2,31 @@
 {% load static %}
 {% block content %}
     <br />
-    <h2 class="page_title">Laus Störf</h2>
+    <h2 class="page-title">Laus Störf</h2>
     <div class="input-group">
         <input type="search" oninput="doSearchJobs()" class="form-control" id="search-box" placeholder="Leit..."/>
     </div>
     <br>
-    <select id="unique_employers" onchange="filterCompany()">
-        <option value="" selected disabled hidden>Fyrirtæki</option>
-        <option value="">Hreinsa síu</option>
+    <select id="unique-employers" onchange="filterCompany()">
+        <option value="" selected disabled hidden>Öll fyrirtæki</option>
+        <option value="">Öll fyrirtæki</option>
         {% for employer in unique_employers %}
             <option value="{{ employer }}">{{ employer }}</option>
         {% endfor %}
     </select>
-    <select id="unique_categories" onchange="filterCategory()">
-        <option value="" selected disabled hidden>Starfsflokkur</option>
-        <option value="">Hreinsa síu</option>
+    <select id="unique-categories" onchange="filterCategory()">
+        <option value="" selected disabled hidden>Allir starfsflokkar</option>
+        <option value="">Allir starfsflokkar</option>
         {% for category in unique_categories %}
             <option value="{{ category }}">{{ category }}</option>
         {% endfor %}
     </select>
-    <label for="order_publish_date">Raða eftir: </label>
-        <button id="order_publish_date">Umsókn birt</button>
-        <button id="order_due_date">Umsóknarfrestur</button>
+    <label for="order-publish-date">Raða eftir: </label>
+        <button id="order-publish-date">Umsókn birt</button>
+        <button id="order-due-date">Umsóknarfrestur</button>
     <label for="checkbox">Aðeins sótt um störf: </label>
         <input id="checkbox" onchange="filterApplied()" type="checkbox"/>
-    <div class="job_offers" id="job_offers_for">
+    <div class="job-offers" id="job-offers-for">
         {% for job_offer in job_offers %}
         {% include 'job_offers_page/single_job_offer.html' with job_offer=job_offer %}
         {% endfor %}

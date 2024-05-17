@@ -1,5 +1,18 @@
+//Search bar event listener
+document.getElementById('search-box')
+
+//Order buttons event listeners
+document.getElementById('order-publish-date').addEventListener('click', function () {
+    updateURL('publish_date');
+    orderJobs('publish_date');
+})
+
+document.getElementById('order-due-date').addEventListener('click', function () {
+    updateURL('due_date');
+    orderJobs('due_date');
+})
 const doSearchJobs = () => {
-    const jobs = document.querySelectorAll(".well_job");
+    const jobs = document.querySelectorAll(".well-job");
     const query = document.getElementById("search-box").value;
 
     jobs.forEach((job) => {
@@ -14,8 +27,8 @@ const doSearchJobs = () => {
 };
 
 const filterCompany = () => {
-    const company = document.getElementById('unique_employers').value;
-    const jobs = document.querySelectorAll(".well_job");
+    const company = document.getElementById('unique-employers').value;
+    const jobs = document.querySelectorAll(".well-job");
 
     jobs.forEach((job) => {
         let job_title = job.innerText.trim().split('\n')
@@ -29,8 +42,8 @@ const filterCompany = () => {
 }
 
 const filterCategory = () => {
-    const category = document.getElementById('unique_categories').value;
-    const jobs = document.querySelectorAll(".well_job");
+    const category = document.getElementById('unique-categories').value;
+    const jobs = document.querySelectorAll(".well-job");
 
     jobs.forEach((job) => {
         let job_category = job.innerText.trim().split('\n')
@@ -43,18 +56,8 @@ const filterCategory = () => {
     });
 }
 
-document.getElementById('order_publish_date').addEventListener('click', function () {
-    updateURL('publish_date');
-    orderJobs('publish_date');
-})
-
-document.getElementById('order_due_date').addEventListener('click', function () {
-    updateURL('due_date');
-    orderJobs('due_date');
-})
 
 const orderJobs = (order_by) => {
-    console.log('Fetching jobs sorted by:', order_by)
     fetch('/lausstorf/?order_by=' + encodeURIComponent(order_by))
         .then(response =>
             response.text()
@@ -81,7 +84,7 @@ const filterApplied = () => {
     const checkbox = document.getElementById("checkbox")
     const bla = document.querySelectorAll(".application")
     const applied_jobs = bla[0].innerText.slice(2, -1).split(", ")
-    const jobs = document.querySelectorAll(".well_job");
+    const jobs = document.querySelectorAll(".well-job");
 
     jobs.forEach((job) => {
         if (checkbox.checked === true && applied_jobs.indexOf(job.id) !== -1) {

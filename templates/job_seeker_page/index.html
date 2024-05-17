@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="job_offers">
+    <div class="job-offers">
         {% for job_offer in information %}
         {% include 'job_seeker_page/single_application.html' with job_offer=job_offer %}
         {% endfor %}

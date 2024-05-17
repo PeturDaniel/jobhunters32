@@ -6,7 +6,7 @@
     <p>Umsóknarfrestur: {{ job_offer.due_date }}</p>
     <p>Störf hefjast: {{ job_offer.start_date }}</p>
     <p>Starfsflokkur: {{ job_offer.category }}</p>
-    <div class="well_job">
+    <div class="well-job">
         <a href="/vinnustadir/{{ job_offer.employer.id }}" class="card-link">
             <img class="employer-profile-photo" src="{{ job_offer.employer.profile_photo }}" alt="#"/>
             <h4 class="employer-title">{{ job_offer.employer.name }}</h4>
