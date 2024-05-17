@@ -325,3 +325,11 @@ select option:checked {
 label[for="id_1-1-name"], label[for="id_1-2-name"], label[for="id_2-1-place"], label[for="id_2-2-place"] {
   margin-top: 20px;
 }
+
+#flag_id_0-country {
+  display: none;
+}
+
+.country-select-flag {
+  display: none;
+}
