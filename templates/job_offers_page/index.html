@@ -14,7 +14,7 @@
             <option value="{{ employer }}">{{ employer }}</option>
         {% endfor %}
     </select>
-    <select id="unique_categories" onchange="filterCategory(unique_categories)">
+    <select id="unique_categories" onchange="filterCategory()">
         <option value="" selected disabled hidden>Starfsflokkur</option>
         <option value="">Hreinsa síu</option>
         {% for category in unique_categories %}
