@@ -1,0 +1,13 @@
+
+<div class="well-job">
+    <a href="/lausstorf/{{ job_offer.id }}" class="card-link">
+        <div id="card-logo">
+        <img class="employer-profile-photo" src="{{ job_offer.photo }}" alt="Logo fyrirtækis"/>
+        </div>
+        <h4 class="job-title">{{ job_offer.title }}</h4>
+        <h6>Fyrirtæki: {{ job_offer.company }}</h6>
+        <h6>Starfshlutfall: {{ job_offer.percentage }}</h6>
+        <h6>Umsókn send: {{ job_offer.date|date:"d/m/Y" }}</h6>
+        <h6>Staða umsóknar:  {{ job_offer.status }}</h6>
+    </a>
+</div>

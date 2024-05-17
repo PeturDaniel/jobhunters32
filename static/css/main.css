@@ -1,5 +1,4 @@
 /* General Styles */
-
 body {
   display: flex;
   flex-direction: column;
@@ -12,6 +11,10 @@ header, footer {
   flex-basis: auto;
 }
 
+header {
+  background-color: #8ecce0;
+}
+
 main {
   flex-grow: 1;
   flex-shrink: 0;
@@ -19,220 +22,383 @@ main {
   background-color: #F6FFFE;
 }
 
+.hidden {
+  display: none;
+}
 
 /* Footer Styles */
-
 footer {
-    background-color: #C9E0C5;
-    color: #F6FFFE;
-    padding: 10px;
-    text-align: center;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+  background-color: #C9E0C5;
+  color: #F6FFFE;
+  padding: 10px;
+  text-align: center;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }
 
 footer li {
-    margin: 5px;
+  margin: 5px;
 }
 
 footer a {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
+
 footer p {
-    margin: 5px;
-}
-
-
-/* Navbar Styles */
-
-#navbar {
-    background-color: #8ECCE0;
-}
-
-/* Job Offer Page Styles */
-
-.job_offer_page {
-    border-bottom: solid 2px rgba(155, 155, 155, .5);
+  margin: 5px;
 }
 
 /* Job Listing Styles */
-
 #jobs {
-    background-color: blue;
-    display: grid;
-    max-width: 1200px;
-    margin: 0 auto;
-    gap: 1rem;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  display: grid;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 
-.job_offers {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
+.job-offers,
 .employers {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-.well_job {
-    flex-basis: calc(33.33% - 10px);
-    background-color: #C9E0C5;
-    padding: 10px;
-    margin: 5px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
+.well-job {
+  flex-basis: calc(33.33% - 10px);
+  background-color: #C9E0C5;
+  padding: 10px;
+  margin: 5px;
+  border: 0.5px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.well-job:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.job-title {
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+.employer-title {
+  padding-top: 10px;
+  padding-bottom: 5px;
 }
 
 /* Image Styles */
-
 .navbar-logo,
-.profile_image {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
+.profile-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.nav-item {
+  padding-right: 5px;
 }
 
 .employer-profile-photo {
-    padding-top: 10px;
-    width: 100px;
-    height: 100px;
-    object-fit: scale-down;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  display: block;
+  object-fit: scale-down;
+}
+
+.employer-profile-photo-detail {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100px;
+  height: 100px;
+  display: block;
+  object-fit: scale-down;
 }
 
 .employer-background {
-    background-repeat: no-repeat;
-    background-position: center;
-    display: block;
-    width: 100%;
-    padding-bottom: 45%;
-    height: auto;
-    background-size: 70%;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: block;
+  width: 100%;
+  padding-bottom: 45%;
+  height: auto;
+  background-size: 70%;
 }
+
+#card-logo {
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+/* Dropdown Styles */
 .btn-group {
-    text-align: center;
+  text-align: center;
 }
 
 .dropdown {
-    max-width: 15em;
-    position: relative;
-    margin: 2em;
+  max-width: 15em;
+  position: relative;
+  margin: 2em;
 }
 
 .dropdown * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .select {
-    background: #C9E0C5;
-    color: #F6FFFE;
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
-    border: 2px #2a2f3b solid;
-    border-radius: 0.5em;
-    padding: 1em;
-    cursor: pointer;
-    transition: background 0.3s;
+  background: #C9E0C5;
+  color: #F6FFFE;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  border: 2px #2a2f3b solid;
+  border-radius: 0.5em;
+  padding: 1em;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
 .select-clicked {
-    border: 2px #26489a solid;
-    box-shadow: 0 0 0.8em #26489a;
+  border: 2px #26489a solid;
+  box-shadow: 0 0 0.8em #26489a;
 }
 
 .select:hover {
-    background: #323741;
-}
-
-.caret {
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 6px solid #fff;
-    transition: 0.3s;
-}
-
-.caret-rotate {
-    transform: rotate(180deg);
-}
-
-.menu {
-    list-style: none;
-    padding: 0.2em 0.5em;
-    background: #323741;
-    border: 1px solid #363a43;
-    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
-    border-radius: 0.5em;
-    color : #9fa5b5;
-    position: absolute;
-    overflow-y: auto;
-    top: 3em;
-    left: 50%;
-    width: 100%;
-    transform: translateX(-50%);
-    opacity: 0;
-    display: none;
-    transition: 0.2s;
-    z-index: 1;
-}
-
-.menu li {
-    padding: 0.7em 0.5em;
-    margin: 0.3em 0;
-    border-radius: 0.5em;
-    cursor: pointer;
-}
-
-.menu li:hover {
-    background: #2a2a35;
+  background: #323741;
 }
 
 .active {
-    background: #23242a;
-}
-.menu.show {
-    display: block;
-    opacity: 1;
-    visibility: visible;
+  background: #23242a;
 }
 
-
-.card-link:link
-{
-    color: #212121;
-    text-decoration: none;
-}
-.card-link:visited
-{
-    color: #212121;
-    text-decoration: none;
-}
-.card-link:hover
-{
-    color: #212121;
-    text-decoration: none;
-}
+/* Card Styles */
+.card-link:link,
+.card-link:visited,
+.card-link:hover,
 .card-link:active {
-    color: #212121;
-    text-decoration: none;
+  color: #212121;
+  text-decoration: none;
 }
 
 .card-footer {
-    background-color: #C9E0C5;
+  background-color: #C9E0C5;
 }
 
-header {
-    background-color: #8ECCE0;
+/* Search Box Styles */
+.input-group {
+  padding-bottom: 10px;
 }
 
-main {
-    background-color: #F6FFFE;
+#search-box {
+  width: 200px;
+  height: 40px;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  background-color: white;
+  color: #333;
+}
+
+#search-box:hover {
+  border-color: #8ecce0;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Select Styles */
+select {
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #C9E0C5;
+  color: #2a2f3b;
+  cursor: pointer;
+  width: 200px;
+  margin-bottom: 10px;
+}
+
+select:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  background-color: #50754a;
+  color: #fff;
+}
+
+select:focus {
+  border-color: #007bff;
+}
+
+select option:checked {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Form Styles */
+#login-block,
+#signup-page,
+#profile-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+
+.form {
+  width: 600px;
+  padding: 20px;
+  background-color: #c9e0c5;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form input[type="text"],
+.form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #50754a;
+  color: #fff;
+  cursor: pointer;
+}
+
+.form input[type="submit"]:hover {
+  background-color: #3e663c;
+}
+
+.helptext {
+  display: none;
+}
+
+.application {
+  flex-basis: calc(33.33% - 10px);
+  background-color: #C9E0C5;
+  padding: 10px;
+  margin: 5px;
+  border: 0.5px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+#application-step {
+  padding-top: 10px;
+}
+
+#id_0-name, #id_0-street_name, #id_0-house_number, #id_0-city, #id_0-country, #id_0-postal_code {
+  margin-top: 10px;
+}
+
+.appl-buttons {
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.appl-custom-button {
+  background-color: #efefef;
+  color: #2a2f3b;
+  padding: 10px 20px;
+  margin: 5px;
+  border: 1px solid #466742;
+  border-radius: 0.5em;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, transform 0.1s, border-color 0.3s;
+}
+
+
+#id_0-cover_letter {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#id_1-1-name, #id_1-2-name, #id_2-1-place, #id_2-2-place {
+  margin-top: 20px;
+}
+
+label[for="id_1-1-name"], label[for="id_1-2-name"], label[for="id_2-1-place"], label[for="id_2-2-place"] {
+  margin-top: 20px;
+}
+
+.custom-button {
+  background-color: #C9E0C5;
+  color: #2a2f3b;
+  padding: 10px 20px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 0.5em;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, transform 0.1s, border-color 0.3s;
+}
+
+.custom-button:focus {
+  background-color: #50754a;
+  color: #fff;
+}
+
+.custom-button:hover {
+  background-color: #50754a;
+  color: #fff;
+}
+
+#flag_id_0-country {
+  display: none;
+}
+
+.country-select-flag {
+  display: none;
+}
+
+.filter-group {
+  padding-bottom: 10px;
+}
+
+#order-label {
+  padding-left: 30px;
+}
+
+#checkbox-label {
+  padding-left: 30px;
+}
+
+.page-title {
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.container {
+  padding-bottom: 30px;
+}
+
+.confirmation-title {
+  padding-top: 50px;
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.confirmation-button {
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }

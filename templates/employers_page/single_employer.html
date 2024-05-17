@@ -1,23 +1,9 @@
-<div class="well_job">
+<div class="well-job">
     <a href="/vinnustadir/{{ employer.id }}" class="card-link">
-        <img class="employer-profile-photo" src="{{ employer.profile_photo }}" alt="#"/>
+        <div id="card-logo">
+            <img class="employer-profile-photo" src="{{ employer.profile_photo }}" alt="Logo fyrirtækis"/>
+        </div>
         <h4 class="employer-title">{{ employer.name }}</h4>
-        <p>{{ employer.address }}</p>
+        <h6>{{ employer.address }}</h6>
     </a>
 </div>
-
-
-<!--<div class="col">
-    <a href="/vinnustadir/{{ employer.id }}" class="card-link">
-        <div class="card h-100">
-            <img src="{{ employer.profile_photo }}" class="employer-profile-photo rounded mx-auto d-block" alt="...">
-            <div class="card-body">
-                <h5 class="employer-name">{{ employer.name }}</h5>
-                <h6 class="employer-address">{{ employer.address }}</h6>
-            </div>
-            <div class="card-footer bg-info-subtle">
-                <small class="footer-text">blablabla</small>
-            </div>
-        </div>
-    </a>
-</div>-->

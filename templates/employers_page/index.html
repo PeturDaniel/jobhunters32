@@ -1,18 +1,14 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-    <br />
-    <h2 class="page_title">Vinnustaðir</h2>
+    <h2 class="page-title">Vinnustaðir</h2>
     <div class="input-group">
         <input type="search" class="form-control" id="search-box" placeholder="Leit..."/>
-        <div class="input-group-btn">
-            <button type="button" id="search-btn" class="btn btn-default">Leita</button>
-        </div>
     </div>
-    <br />
     <div class="employers">
         {% for employer in employers %}
         {% include 'employers_page/single_employer.html' with employer=employer %}
         {% endfor %}
     </div>
-    <br />
+    <script src="{% static 'js/employers.js' %}"></script>
 {% endblock %}

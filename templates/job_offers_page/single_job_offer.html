@@ -1,29 +1,12 @@
-<div class="well_job">
+<div class="well-job" id="{{ job_offer.id }}">
     <a href="/lausstorf/{{ job_offer.id }}" class="card-link">
-        <img class="employer-profile-photo" src="{{ job_offer.employer.profile_photo }}" alt="#"/>
+        <div id="card-logo">
+            <img class="employer-profile-photo" src="{{ job_offer.employer.profile_photo }}" alt="Logo fyrirtækis"/>
+        </div>
         <h4 class="job-title">{{ job_offer.title }}</h4>
-        <p>Umsóknarfrestur: {{ job_offer.due_date|date:"d/m/Y" }}</p>
+        <h6 class="job-category">{{ job_offer.category }}</h6>
+        <h6 class="employer-title">{{ job_offer.employer.name }}</h6>
+        <h6 id="{{ job_offer.publish_date }}">Birt: {{job_offer.publish_date|date:"d/m/Y" }}</h6>
+        <h6 id="{{ job_offer.due_date }}">Umsóknarfrestur: {{ job_offer.due_date|date:"d/m/Y" }}</h6>
     </a>
 </div>
-
-
-
-<!--<div class="well_job">
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-        {% for job_offer in job_offers %}
-            <div class="col">
-                <div class="card">
-                    <img src="{{ job_offer.employer.profile_photo }}" class="employer-profile-photo" alt="...">
-                    <div class="card-body">
-                        <a href="/lausstorf/{{ job_offer.id }}">
-                            <h5 class="job-title">{{ job_offer.title }}</h5>
-                        </a>
-                    </div>
-                    <div class="card-footer">
-                        <small class="footer-text">Umsóknarfrestur: {{ job_offer.due_date|date:"d/m/Y" }}</small>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
-</div>-->

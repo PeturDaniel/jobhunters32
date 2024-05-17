@@ -1,17 +1,37 @@
 {% extends "base.html" %}
 {% block content %}
-    <h2>{{ job_offer.title }}</h2>
-    <p>{{ job_offer.description }}</p>
-    <p>Umsóknarfrestur: {{ job_offer.due_date }}</p>
+    <h2 class="page-title">{{ job_offer.title }}</h2>
+    <p>{{ job_offer.description|safe }}</p>
     <p>Hlutfall: {{ job_offer.percentage }}</p>
-    <!--employer info-->
-    <!--link employer detail-->
-    <!--apply button-->
+    <p>Umsóknarfrestur: {{ job_offer.due_date|date:"d/m/Y" }}</p>
+    <p>Störf hefjast: {{ job_offer.start_date|date:"d/m/Y" }}</p>
+    <p>Starfsflokkur: {{ job_offer.category }}</p>
+    <div class="job-offers">
+        <div class="well-job">
+            <a href="/vinnustadir/{{ job_offer.employer.id }}" class="card-link">
+            <div id="card-logo">
+                <img class="employer-profile-photo" src="{{ job_offer.employer.profile_photo }}" alt="Logo fyrirtækis"/>
+            </div>
+            <h4 class="employer-title">{{ job_offer.employer.name }}</h4>
+            <h6>{{ job_offer.employer.address }}</h6>
+        </a>
+    </div>
+    </div>
     {% if user.is_authenticated %}
-        <form method="get" action="{% url 'job_application_wizard_start' job_offer_id=job_offer.id %}">
-            {% csrf_token %}
-            <button type="submit">Sækja um</button>
-        </form>
+        {% if context.is_job_seeker %}
+            {% if enable %}
+                <form method="get" action="{% url 'job_application_wizard_start' job_offer_id=job_offer.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="custom-button">Sækja um</button>
+                </form>
+            {% else %}
+                <h5>Upplýsingar um umsókn</h5>
+                <p>Dagsetning umsóknar: {{ context.date|date:"d/m/Y" }}</p>
+                <p>Staða umsóknar: {{ context.status }}</p>
+            {% endif %}
+        {% else %}
+            <p>Þú þarft að skrá inn <a href='{% url 'job-seeker-profile' %}'>fullt nafn</a> áður en þú sækir um</p>
+        {% endif %}
     {% else %}
         <p>Þú þarft að vera <a href='{% url 'login' %}'>innskráður</a> til að sækja um.</p>
     {% endif %}

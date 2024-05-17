@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2 class="page-title">Mínar umsóknir</h2>
+    <div class="job-offers">
+        {% for job_offer in information %}
+        {% include 'job_seeker_page/single_application.html' with job_offer=job_offer %}
+        {% endfor %}
+    </div>
+{% endblock %}

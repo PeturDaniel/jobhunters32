@@ -1,21 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
-
+<div id="profile-page">
+<h1 >Þinn Prófíll</h1>
     <form class="form form-horizontal" method="post">
         {% csrf_token %}
         {{ form }}
         <input type="submit" class="btn btn-primary" value="Uppfæra"/>
     </form>
-    <form class="application page">
-        {% for application in applications %}
-            <ul>
-                <li class="status">Title: {{ application.name }}</li>
-            </ul>
-        {% endfor %}
-        {% for offer in offers %}
-            <ul>
-                <li class="title">Title {{ offer.title }}</li>
-            </ul>
-        {% endfor %}
-    </form>
+</div>
 {% endblock %}

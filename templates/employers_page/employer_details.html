@@ -1,9 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
     <div class="employer-background" style="background-image: url({{ employer.cover_photo }})"></div>
+    <img class="employer-profile-photo-detail" src="{{ employer.profile_photo }}" alt="Logo fyrirtækis"/>
     <h2>{{ employer.name }}</h2>
-    <p>{{ employer.about }}</p>
+    <p>{{ employer.about|safe }}</p>
     <p>{{ employer.address }}</p>
     <p>Sími: {{ employer.phone }}</p>
     <p>Netfang: {{ employer.email }}</p>
+    <p>{{ employer.job_offer.title }}</p>
+    <br />
+    <h5>Laus störf hjá {{employer.name}}:</h5>
+    <div class="job-offers">
+        {% for job_offer in job_offers %}
+        {% include 'job_offers_page/single_job_offer.html' with job_offer=job_offer %}
+        {% endfor %}
+    </div>
+    <br />
 {% endblock %}

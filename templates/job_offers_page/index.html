@@ -1,60 +1,37 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-    <h2 class="page_title">Laus Störf</h2>
+    <h2 class="page-title">Laus Störf</h2>
     <div class="input-group">
         <input type="search" class="form-control" id="search-box" placeholder="Leit..."/>
-        <div class="input-group-btn">
-            <button type="button" id="search-btn" class="btn btn-default">Leita</button>
-        </div>
     </div>
-    
-    <br>
-    
-    <div class="btn-group">
-    <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Fyrirtæki
-    </button>
-    <ul class="dropdown-menu">
-            
-            <input type="checkbox" class="check" id="btn check-2" checked autocomplete="off">
-            <label class="btn primary" for="btn-check-2">Subway</label>
-            <br>
-            <input type="checkbox" class="btn check" id="btn check-3" checked autocomplete="off">
-            <label class="btn primary" for="btn-check-2">Kitchen</label>
-            <br>
-            <input type="checkbox" class="btn check" id="btn check-4" checked autocomplete="off">
-            <label class="btn primary" for="btn-check-2">Sorpa</label>
-            <br>
-            <input type="checkbox" class="btn check" id="btn check-5" checked autocomplete="off">
-            <label class="btn primary" for="btn-check-2">WoW Air</label>  
-        </ul>
-    </div>  
-    
-    
-    
-    
-    
-    
-    
-    <div class="btn-group">
-    <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Flokkar
-    </button>
-    <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Kokkur</a></li>
-            <li><a class="dropdown-item" href="#">Samlokari</a></li>
-            <li><a class="dropdown-item" href="#">Flugmaður</a></li>
-            <li><a class="dropdown-item" href="#">Pössunarstarf</a></li>
-            <li><a class="dropdown-item" href="#">Tölvufræðingur</a></li>
-        </ul>
+    <div class="filter-group">
+        <select id="unique-employers">
+            <option value="" selected disabled hidden>Öll fyrirtæki</option>
+            <option value="">Öll fyrirtæki</option>
+            {% for employer in unique_employers %}
+                <option value="{{ employer }}">{{ employer }}</option>
+            {% endfor %}
+        </select>
+        <select id="unique-categories">
+            <option value="" selected disabled hidden>Allir starfsflokkar</option>
+            <option value="">Allir starfsflokkar</option>
+            {% for category in unique_categories %}
+                <option value="{{ category }}">{{ category }}</option>
+            {% endfor %}
+        </select>
+        <label id="order-label" for="order-publish-date">Raða eftir: </label>
+            <button id="order-publish-date" class="custom-button">Auglýsing birt</button>
+            <button id="order-due-date" class="custom-button">Umsóknarfrestur</button>
+        <label id="checkbox-label" for="checkbox">Aðeins sótt um störf: </label>
+            <input id="checkbox" type="checkbox"/>
     </div>
-        
-    
-    <div class="job_offers">
+    <div class="job-offers" id="job-offers-for">
         {% for job_offer in job_offers %}
         {% include 'job_offers_page/single_job_offer.html' with job_offer=job_offer %}
         {% endfor %}
     </div>
-
+    <!--Script application allows the js function filterApplied to access a list of job application ids-->
+    <script type="text/javascript" class="application"> {{ job_applications }}</script>
+    <script src="{% static 'js/job_offers.js' %}"></script>
 {% endblock %}
-
